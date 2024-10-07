@@ -1,13 +1,13 @@
 # CopCheck
 
-> Our application is tailored for citizens who may have had a run-in with law enforcement or anyone wanting to make a change, such as community activists, residents in high-police areas, and those involved in legal matters. Users can see officers at the nearest precinct based on their location, empowering them to be more informed and engaged. They can leave detailed reports or complaints about their experiences with specific officers, ensuring their voices are heard. Also, users can upload videos of interactions, providing crucial evidence of potential misconduct and injustices. The app also allows users to look up police officers by name and badge number, giving access to data on previous interactions and their community scores, fostering transparency and accountability within law enforcement.
+Our application is tailored for citizens who may have had a run-in with law enforcement or anyone wanting to make a change, such as community activists, residents in high-police areas, and those involved in legal matters. Users can see officers at the nearest precinct based on their location, empowering them to be more informed and engaged. They can leave detailed reports or complaints about their experiences with specific officers, ensuring their voices are heard. Also, users can upload videos of interactions, providing crucial evidence of potential misconduct and injustices. The app also allows users to look up police officers by name and badge number, giving access to data on previous interactions and their community scores, fostering transparency and accountability within law enforcement.
 
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Mekhi Tudor
+  - __Scrum Master__: Mekhi Miller
+  - __Development Team Members__: Patrick Dacius, Mekhi Tudor
 
 ## Table of Contents
 
@@ -43,7 +43,7 @@ From within the root directory:
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECTS_TAB).
+View the project roadmap [here](https://github.com/orgs/TEAM-3PM/projects/1).
 
 
 ## Contributing
