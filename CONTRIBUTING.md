@@ -38,14 +38,14 @@ The `main` branch should always have working code so as a best practice...
 Each team member should own their own branch and work exclusively on that branch.
 
 ```
-git branch ben-feature-A
-git checkout ben-feature-A
+git branch typeOfBranch-featureName
+git checkout typeOfBranch-featureName
 ```
 
 Or, create a branch and switch to it in one command:
 
 ```
-git checkout -b ben-feature-A
+git checkout -b typeOfBranch-featureName
 ```
 
 Then see all branches:
@@ -58,7 +58,7 @@ You should then see: (the `*` indicates the current branch)
 
 ```
   main
-* ben-feature-A
+* typeOfBranch-featureName
 ```
 
 > TIP: Always check to make sure that you are NOT working in the `main` branch
@@ -67,7 +67,7 @@ To switch back and forth between `main` and your branch, run:
 
 ```sh
 git checkout main
-git checkout ben-feature-A
+git checkout typeOfBranch-featureName
 ```
 
 ## Commit Changes
@@ -78,8 +78,16 @@ In your feature branch, run:
 
 ```sh
 git add -A
-git commit -m 'a message describing your changes'
+git commit -m 'message'
 ```
+
+### Commit Message Conventions
+
+1. Where the change was made: `Frontend` or `Backend` or `Frontend-Backend`
+2. What feature was changed: Ex. `User Login`, `Officers Table`
+3. What type of change was made: Ex. `Bug Fix`, `Implementation`, `Styling`
+
+Full Ex. `Frontend - User Post - Implementation`
 
 ## Merge before you push
 
@@ -95,7 +103,7 @@ git pull
 Then, switch back to your feature branch and merge the changes from `main` _into your branch_.
 
 ```sh
-git checkout ben-feature-A
+git checkout typeOfBranch-featureName
 git merge main
 ```
 
@@ -115,11 +123,11 @@ git push
 
 Once you have merged `main` into your branch, go ahead and `git push`.
 
-> If it is your first time pushing from this branch, you will be told to use the `--set-upstream` flag.
+> When pushing from your branch, you will be told to use the `--set-upstream` flag.
 
 - Go to Github.com and open up your repository.
 - Then, click on the <kbd>Pull Requests</kbd> tab to create a new pull request to merge your branch into `main`.
-- Ask your teammates to review your code and then merge!
-- If you want to continue working on your branch, do NOT delete the branch.
+- Ask your teammates to review & accept your pull request!
+- After each branch has been successfully merged, delete the branch.
 
 Your teammates can then follow the steps listed in [merge before you push](#merge-before-you-push) to update their local repositories.
