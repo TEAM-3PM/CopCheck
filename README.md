@@ -5,9 +5,9 @@ Our application is tailored for citizens who may have had a run-in with law enfo
 
 ## Team
 
-  - __Product Owner__: Mekhi Tudor
+  - __Project Manager__: Mekhi Tudor
   - __Scrum Master__: Mekhi Miller
-  - __Development Team Members__: Patrick Dacius, Mekhi Tudor
+  - __Development Team Members__: Patrick Dacius, Mekhi Tudor, Mekhi Miller
 
 ## Table of Contents
 
