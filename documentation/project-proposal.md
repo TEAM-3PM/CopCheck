@@ -106,12 +106,13 @@ Additionally, challenges **will** arise in managing user-generated content, spec
 ## 📒 Sources
 
 *Mapping Police Violence.*
-[](https://mappingpoliceviolence.org/).
+[https://mappingpoliceviolence.org](https://mappingpoliceviolence.org/).
 
 *Policing Equity.*
-[](https://policingequity.org/what-we-do). 
+[https://policingequity.org/what-we-do](https://policingequity.org/what-we-do). 
+
 *New York Civil Liberties Union. "New York State Police."*
-[](https://www.aclu.org/press-releases/nyclu-releases-report-analyzing-nypd-stop-and-frisk-data). 
+[https://www.aclu.org/press-releases/nyclu-releases-report-analyzing-nypd-stop-and-frisk-data](https://www.aclu.org/press-releases/nyclu-releases-report-analyzing-nypd-stop-and-frisk-data). 
 
 *Rusch, Smith. "This is the secret system that covers up police misconduct — and ensures problem officers can get hired again“ Graduate School of Journalism, University of California, Berkeley*
-[](https://journalism.berkeley.edu/projects/this-is-the-secret-system-that-covers-up-police-misconduct-and-ensures-problem-officers-can-get-hired-again/). 
+[https://journalism.berkeley.edu/projects/this-is-the-secret-system-that-covers-up-police-misconduct-and-ensures-problem-officers-can-get-hired-again](https://journalism.berkeley.edu/projects/this-is-the-secret-system-that-covers-up-police-misconduct-and-ensures-problem-officers-can-get-hired-again/). 
