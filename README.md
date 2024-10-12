@@ -79,11 +79,11 @@ npm run dev:frontend
 From within the root directory:
 
 ```sh
-cd server && npx knex migrate:make example_file_name
+cd server && npx knex migrate:make <your_file_name>
 ```
 OR
 ```sh
-npm run migrate:make example_file_name
+npm run migrate:make <your_file_name>
 ```
 
 ### Running Migration Files
