@@ -30,11 +30,11 @@ Our application is tailored for citizens who may have had a run-in with law enfo
 
 ## Requirements
 
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- [Node](https://nodejs.org/en) (v14+)
+- [PostgreSQL](https://www.postgresql.org/) (v12+)
+- [Express](https://expressjs.com/) (v4.17.1+)
+- [Knex](https://knexjs.org/) (v0.95+)
+- [Vite React](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)
 
 ## Development
 
