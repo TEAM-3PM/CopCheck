@@ -12,13 +12,18 @@ Our application is tailored for citizens who may have had a run-in with law enfo
 
 ## Table of Contents
 
-1. [Usage](#Usage)
+1. [Usage](#usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
    1. [Installing Dependencies](#installing-dependencies)
-   1. [Tasks](#tasks)
-1. [Team](#team)
+   1. [Running Server Locally](#running-server-locally)
+   1. [Running Frontend Locally](#running-frontend-locally)
+   1. [Migratrion File Generation](#migratrion-file-generation)
+   1. [Running Migration Files](#running-migration-files)
+   1. [Running Seed Files](#running-seed-files)
+   1. [Roadmap](#roadmap)
 1. [Contributing](#contributing)
+1. [Style Guide](#style-guide)
 
 ## Usage
 
@@ -52,11 +57,11 @@ PG_CONNECTION_STRING=''
 
 ## Requirements
 
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- [Node](https://nodejs.org/en) (v14+)
+- [PostgreSQL](https://www.postgresql.org/) (v12+)
+- [Express](https://expressjs.com/) (v4.17.1+)
+- [Knex](https://knexjs.org/) (v0.95+)
+- [Vite React](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)
 
 ## Development
 
@@ -65,7 +70,83 @@ PG_CONNECTION_STRING=''
 From within the root directory:
 
 ```sh
-<COMMANDS_HERE>
+cd frontend && npm i && npm run build && cd ../server && npm i && npm run migrate && npm run seed
+```
+
+OR
+
+```sh
+npm run kickstart
+```
+
+### Running Server Locally
+
+From within the root directory:
+
+```sh
+cd server && npm run dev
+```
+
+OR
+
+```sh
+npm run dev
+```
+
+### Running Frontend Locally
+
+From within the root directory:
+
+```sh
+cd frontend && npm run dev
+```
+
+OR
+
+```sh
+npm run dev:frontend
+```
+
+### Migratrion File Generation
+
+From within the root directory:
+
+```sh
+cd server && npx knex migrate:make <your_file_name>
+```
+
+OR
+
+```sh
+npm run migrate:make <your_file_name>
+```
+
+### Running Migration Files
+
+From within the root directory:
+
+```sh
+cd server && npm run migrate
+```
+
+OR
+
+```sh
+npm run migrate
+```
+
+### Running Seed Files
+
+From within the root directory:
+
+```sh
+cd server && npm run seed
+```
+
+OR
+
+```sh
+npm run seed
 ```
 
 ### Roadmap
