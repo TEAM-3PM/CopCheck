@@ -11,13 +11,18 @@ Our application is tailored for citizens who may have had a run-in with law enfo
 
 ## Table of Contents
 
-1. [Usage](#Usage)
+1. [Usage](#usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
-1. [Team](#team)
+    1. [Running Server Locally](#running-server-locally)
+    1. [Running Frontend Locally](#running-frontend-locally)
+    1. [Migratrion File Generation](#migratrion-file-generation)
+    1. [Running Migration Files](#running-migration-files)
+    1. [Running Seed Files](#running-seed-files)
+    1. [Roadmap](#roadmap)
 1. [Contributing](#contributing)
+1. [Style Guide](#style-guide)
 
 ## Usage
 
@@ -38,7 +43,71 @@ Our application is tailored for citizens who may have had a run-in with law enfo
 From within the root directory:
 
 ```sh
-<COMMANDS_HERE>
+cd frontend && npm i && npm run build && cd ../server && npm i && npm run migrate && npm run seed
+```
+OR
+```sh
+npm run kickstart
+```
+
+### Running Server Locally
+
+From within the root directory:
+
+```sh
+cd server && npm run dev
+```
+OR
+```sh
+npm run dev
+```
+
+### Running Frontend Locally
+
+From within the root directory:
+
+```sh
+cd frontend && npm run dev
+```
+OR
+```sh
+npm run dev:frontend
+```
+
+### Migratrion File Generation
+
+From within the root directory:
+
+```sh
+cd server && npx knex migrate:make example_file_name
+```
+OR
+```sh
+npm run migrate:make example_file_name
+```
+
+### Running Migration Files
+
+From within the root directory:
+
+```sh
+cd server && npm run migrate
+```
+OR
+```sh
+npm run migrate
+```
+
+### Running Seed Files
+
+From within the root directory:
+
+```sh
+cd server && npm run seed
+```
+OR
+```sh
+npm run seed
 ```
 
 ### Roadmap
