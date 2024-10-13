@@ -7,7 +7,7 @@
 exports.up = knex =>
 	knex.schema.createTable("officers", table => {
 		table.increments("id").primary();
-		table.integer("tax_id").notNullable();
+		table.integer("tax_id").unique().notNullable();
 		table.integer("precinct_id").notNullable();
 		table.string("first_name").notNullable();
 		table.string("last_name").notNullable();
