@@ -4,14 +4,13 @@
  * @returns { Promise<void> }
  */
 
-exports.up = knex => {
-	return knex.schema.createTable("public_data", table => {
+exports.up = knex =>
+	knex.schema.createTable("public_data", table => {
 		table.increments("id").primary();
 		table.string("as_of_date");
 		table.integer("complaint_id");
 		table.integer("complaint_officer_number");
 		table.integer("tax_id");
-		table.foreign("tax_id").references("tax_id").inTable("officers");
 		table.string("officer_rank_abbreviation_at_incident");
 		table.string("officer_rank_at_incident");
 		table.string("officer_command_at_incident");
@@ -27,7 +26,6 @@ exports.up = knex => {
 		table.string("nypd_allegation_disposition");
 		table.string("investigator_recommended_allegation_disposition");
 	});
-};
 
 /**
  * @param { import("knex").Knex } knex
