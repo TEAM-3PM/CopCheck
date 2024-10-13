@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
 import { logUserIn } from "../adapters/auth-adapter";
+
 import CurrentUserContext from "../contexts/current-user-context";
 
 export default function LoginPage() {
@@ -24,17 +25,34 @@ export default function LoginPage() {
   };
 
   return <>
-    <h1>Login</h1>
-    <form onSubmit={handleSubmit} aria-labelledby="login-heading">
+  <div className='wrapper'>
+    {/* <h1>Login</h1> */}
+    <form onSubmit={handleSubmit} aria-labelledby="login-heading" className='whole-form'>
       <h2 id='login-heading'>Log back in!</h2>
+
+      <div className ="input-box">
       <label htmlFor="username">Username</label>
-      <input type="text" autoComplete="username" id="username" name="username" />
+      <input type="text" autoComplete="username" id="username" name="username" placeholder ="Username" />
+      </div>
 
+      <div className="input-box">
       <label htmlFor="password">Password</label>
-      <input type="password" autoComplete="current-password" id="password" name="password" />
+      <input type="password" autoComplete="current-password" id="password" name="password" placeholder="Password"/>
+      </div>
 
-      <button>Log in!</button>
+      <div className="remember-forgot">
+        <label id="remember-me"> <input type="checkbox" />Remember me?</label>
+      </div>
+
+      <button id="login-button"> Login!</button>
+
+      <div className='register-link'>
+        <p>Don't have an account? <a href="#">Register</a></p>
+      </div>
+  
+      
     </form>
+    </div>
     {!!errorText && <p>{errorText}</p>}
   </>;
 }
