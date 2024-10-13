@@ -11,6 +11,7 @@ exports.up = knex => {
 		table.integer("complaint_id");
 		table.integer("complaint_officer_number");
 		table.integer("tax_id");
+		table.foreign("tax_id").references("tax_id").inTable("officers");
 		table.string("officer_rank_abbreviation_at_incident");
 		table.string("officer_rank_at_incident");
 		table.string("officer_command_at_incident");

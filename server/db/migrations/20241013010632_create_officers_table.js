@@ -8,7 +8,6 @@ exports.up = knex => {
 	return knex.schema.createTable("officers", table => {
 		table.increments("id").primary();
 		table.integer("tax_id").notNullable();
-		table.foreign("tax_id").references("id").inTable("public_data");
 		table.integer("precinct_id").notNullable();
 		table.foreign("precinct_id").references("id").inTable("precincts");
 		table.string("first_name").notNullable();
