@@ -1,5 +1,5 @@
 {
-	"name": "react-express-auth-template",
+	"name": "cop-check",
 	"version": "1.0.0",
 	"description": "",
 	"main": "server/index.js",
@@ -12,7 +12,7 @@
 		"start": "cd server && npm start",
 		"dev": "cd server && npm run dev",
 		"dev:frontend": "cd frontend && npm run dev",
-		"connect": "psql -U postgres -d react_auth_example",
+		"connect": "psql -U postgres -d copcheck",
 		"lint": "eslint . --fix"
 	},
 	"keywords": [],

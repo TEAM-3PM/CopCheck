@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # How to Contribute to this project
 
 **Table of Contents**
@@ -115,7 +117,7 @@ Finally, make a new commit to finish resolving these conflicts:
 
 ```
 git add -A
-git commit -m 'merging main into my branch'
+git commit -m 'merging main into this branch'
 git push
 ```
 
