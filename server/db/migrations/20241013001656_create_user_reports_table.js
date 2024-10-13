@@ -7,7 +7,9 @@
 exports.up = function (knex) {
 	return knex.schema.createTable("user_reports", table => {
 		table.increments("id").primary();
+		table.integer("user_id").notNullable();
 		table.foreign("user_id").references("id").inTable("users");
+		table.integer("officer_id").notNullable();
 		table.foreign("officer_id").references("id").inTable("officers");
 		table.timestamps(true, true);
 	});
