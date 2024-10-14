@@ -4,16 +4,12 @@ const { isAuthorized } = require("../utils/auth-utils");
 const User = require("../models/User");
 
 exports.createUser = async (req, res) => {
-	const { username, password } = req.body;
+  const { username, password, full_name, email, age, race, gender } = req.body;
 
-	// TODO: check if username is taken, and if it is what should you return?
-	const user = await User.create(username, password);
-	// error goes through here
-	/** Fix:
-	 * Deconstruct the needed values from the fetch request's body
-	 * Pass those values into User.create() in the correct order
-	 */
-	req.session.userId = user.id;
+  // TODO: check if username is taken, and if it is what should you return?
+  const user = await User.create(username, password, full_name, email, age, race, gender);
+  req.session.userId = user.id;
+
 
 	res.send(user);
 };
@@ -24,10 +20,11 @@ exports.listUsers = async (req, res) => {
 };
 
 exports.showUser = async (req, res) => {
-	const { id } = req.params;
 
-	const user = await User.find(id);
-	if (!user) return res.sendStatus(404);
+  const { id } = req.params;
+ 
+  const user = await User.find(id);
+  if (!user) return res.sendStatus(404);
 
 	res.send(user);
 };

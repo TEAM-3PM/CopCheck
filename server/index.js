@@ -37,8 +37,9 @@ app.delete('/api/logout', authControllers.logoutUser);
 ///////////////////////////////
 // User Routes
 ///////////////////////////////
-
+    
 app.post('/api/users', userControllers.createUser);
+
 
 // These actions require users to be logged in (authentication)
 // Express lets us pass a piece of middleware to run for a specific endpoint

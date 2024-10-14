@@ -62,28 +62,27 @@ class User {
 		return rawUserData ? new User(rawUserData) : null;
 	}
 
-	// Hashes the given password and then creates a new user
-	// in the users table. Returns the newly created user, using
-	// the constructor to hide the passwordHash.
-	static async create(username, password, email, full_name, age, race, gender) {
-		// hash the plain-text password using bcrypt before storing it in the database
-		const passwordHash = await authUtils.hashPassword(password);
+  // Hashes the given password and then creates a new user
+  // in the users table. Returns the newly created user, using
+  // the constructor to hide the passwordHash.
+  static async create(username, password, full_name, email, age, race, gender) {
+    // hash the plain-text password using bcrypt before storing it in the database
+    const passwordHash = await authUtils.hashPassword(password);
 
-		const query = `INSERT INTO users (username, password_hash, email, full_name, age, race, gender)
+    const query = `INSERT INTO users (username, password_hash, full_name, email, age, race, gender)
       VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING *`;
-		// error is being thrown here because we only are filling out the username and passwordHash
-		const result = await knex.raw(query, [
-			username,
-			passwordHash,
-			email,
-			full_name,
-			age,
-			race,
-			gender,
-		]);
-		const rawUserData = result.rows[0];
-		return new User(rawUserData);
-	}
+    const result = await knex.raw(query, [
+      username,
+      passwordHash,  
+      full_name,
+      email,
+      age,
+      race,
+      gender
+    ]);
+    const rawUserData = result.rows[0];
+    return new User(rawUserData);
+  }
 
 	// Updates the user that matches the given id with a new username.
 	// Returns the modified user, using the constructor to hide the passwordHash.

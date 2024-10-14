@@ -10,13 +10,9 @@ import {
 
 const baseUrl = "/api/users";
 
-export const createUser = async ({ username, password }) => {
-	return fetchHandler(baseUrl, getPostOptions({ username, password }));
-	// error goes through here
-	/** Fix:
-	 * Add new required parameters to the functions
-	 * Pass the parameters into the getPostOptions() function
-	 */
+
+export const createUser = async ({ username, password, full_name, email, age, race, gender  }) => {
+  return fetchHandler(baseUrl, getPostOptions({ username, password, full_name, email, age, race, gender }))
 };
 
 // For this one adapter, if an error occurs, we handle it here by printing
