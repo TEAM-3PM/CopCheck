@@ -98,6 +98,25 @@ form {
   width: 350px;
 }
 
+#fullname {
+  width: 350px;
+}
+
+#email {
+  width: 350px;
+}
+
+#age {
+  width: 350px;
+}
+
+#race {
+  width: 350px;
+}
+
+#gender {
+  width: 350px;
+}
 
 .wrapper input-box {
   position: relative;
@@ -167,6 +186,8 @@ form {
   color: #333;
   font-weight: 700;
 }
+
+
 
 .wrapper .register-link {
   font-size: 14.5px;
