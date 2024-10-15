@@ -20,6 +20,7 @@ export default function SiteHeadingAndNav() {
             : <>
               <li><NavLink to='/login'>Login</NavLink></li>
               <li><NavLink to='/sign-up'>Sign Up</NavLink></li>
+              <li><NavLink to='/complaint'>File A Complaint</NavLink></li>
             </>
         }
       </ul>
