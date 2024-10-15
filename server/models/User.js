@@ -71,12 +71,12 @@ class User {
       VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING *`;
     const result = await knex.raw(query, [
       username,
-      passwordHash,  
+      passwordHash,
       full_name,
       email,
       age,
       race,
-      gender
+      gender,
     ]);
     const rawUserData = result.rows[0];
     return new User(rawUserData);
@@ -84,7 +84,7 @@ class User {
 
   // Updates the user that matches the given id with a new username.
   // Returns the modified user, using the constructor to hide the passwordHash.
-  static async update(id, username) {
+  static async updateUsername(id, username) {
     const query = `
       UPDATE users
       SET username=?
@@ -92,6 +92,66 @@ class User {
       RETURNING *
     `;
     const result = await knex.raw(query, [username, id]);
+    const rawUpdatedUser = result.rows[0];
+    return rawUpdatedUser ? new User(rawUpdatedUser) : null;
+  }
+
+  static async updatePassword(id, password_hash) {
+    const query = `
+      UPDATE users
+      SET password_hash=?
+      WHERE id=?
+      RETURNING *
+    `;
+    const result = await knex.raw(query, [password_hash, id]);
+    const rawUpdatedUser = result.rows[0];
+    return rawUpdatedUser ? new User(rawUpdatedUser) : null;
+  }
+
+  static async updateName(id, full_name) {
+    const query = `
+      UPDATE users
+      SET full_name=?
+      WHERE id=?
+      RETURNING *
+    `;
+    const result = await knex.raw(query, [full_name, id]);
+    const rawUpdatedUser = result.rows[0];
+    return rawUpdatedUser ? new User(rawUpdatedUser) : null;
+  }
+
+  static async updateAge(id, age) {
+    const query = `
+      UPDATE users
+      SET age=?
+      WHERE id=?
+      RETURNING *
+    `;
+    const result = await knex.raw(query, [age, id]);
+    const rawUpdatedUser = result.rows[0];
+    return rawUpdatedUser ? new User(rawUpdatedUser) : null;
+  }
+
+  static async updateRace(id, race) {
+    const query = `
+      UPDATE users
+      SET race=?
+      WHERE id=?
+      RETURNING *
+    `;
+    const result = await knex.raw(query, [username, id]);
+    const rawUpdatedUser = result.rows[0];
+    return rawUpdatedUser ? new User(rawUpdatedUser) : null;
+  }
+
+  static async updateGender(id, gender) {
+    const query = `
+      UPDATE users
+      SET gender=?
+      WHERE id=?
+      RETURNING *
+    `;
+    const result = await knex.raw(query, [gender, id]);
     const rawUpdatedUser = result.rows[0];
     return rawUpdatedUser ? new User(rawUpdatedUser) : null;
   }
