@@ -6,4 +6,5 @@ exports.createUserReport = async (req, res) => {
 	const { user_id, officer_id } = req.body;
 
 	const userReport = await UserReport.create(user_id, officer_id);
+	res.send(userReport);
 };
