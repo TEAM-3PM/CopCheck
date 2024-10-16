@@ -17,6 +17,7 @@ const checkAuthentication = require("./middleware/checkAuthentication");
 const authControllers = require("./controllers/authControllers");
 const userControllers = require("./controllers/userControllers");
 const userReportControllers = require("./controllers/userReportControllers");
+const officerControllers = require("./controllers/officerControllers");
 const app = express();
 
 // middleware
@@ -54,6 +55,12 @@ app.post(
 	checkAuthentication,
 	userReportControllers.createUserReport
 );
+
+///////////////////////////////
+// Officer Routes
+///////////////////////////////
+
+app.get("/api/officers", checkAuthentication, officerControllers.listOfficers);
 
 ///////////////////////////////
 // Fallback Route
