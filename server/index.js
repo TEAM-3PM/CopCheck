@@ -37,7 +37,7 @@ app.delete('/api/logout', authControllers.logoutUser);
 ///////////////////////////////
 // User Routes
 ///////////////////////////////
-    
+
 app.post('/api/users', userControllers.createUser);
 
 

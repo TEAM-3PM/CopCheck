@@ -16,14 +16,15 @@ export default function SiteHeadingAndNav() {
             ? <>
               <li><NavLink to='/users' end={true}>Users</NavLink></li>
               <li><NavLink to={`/users/${currentUser.id}`}>{currentUser.username}</NavLink></li>
+              <li><NavLink to='/complaint'>File A Complaint</NavLink></li>
             </>
             : <>
               <li><NavLink to='/login'>Login</NavLink></li>
               <li><NavLink to='/sign-up'>Sign Up</NavLink></li>
-              <li><NavLink to='/complaint'>File A Complaint</NavLink></li>
             </>
         }
       </ul>
     </nav>
   </header>;
 }
+
