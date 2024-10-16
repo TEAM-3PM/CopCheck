@@ -7,6 +7,7 @@
 
 exports.seed = async function (knex) {
 	// Deletes ALL existing entries
+	await knex("officers").del();
 	await knex("precincts").del();
 
 	await knex.raw("ALTER SEQUENCE precincts_id_seq RESTART WITH 1");
