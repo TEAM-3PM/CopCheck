@@ -20,9 +20,9 @@ class Content {
   }
 
   // Same as above but uses the username to find the user
-  static async findByUsername(username) {
-    const query = `SELECT * FROM contents WHERE username = ?`;
-    const result = await knex.raw(query, [username]);
+  static async findReportId(report_id) {
+    const query = `SELECT * FROM contents WHERE report_id = ?`;
+    const result = await knex.raw(query, [report_id]);
     const rawUserData = result.rows[0];
     return rawUserData ? new Content(rawUserData) : null;
   }
