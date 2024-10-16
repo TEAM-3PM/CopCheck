@@ -21,7 +21,7 @@ class Content {
 
   static async findReportId(report_id) {
     const query = `SELECT * FROM contents WHERE report_id = ?`;
-    const result = await knex.raw(query, [id]);
+    const result = await knex.raw(query, [report_id]);
     const rawUserData = result.rows[0];
     return rawUserData ? new Content(rawUserData) : null;
   }
