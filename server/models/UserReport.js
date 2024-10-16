@@ -3,7 +3,6 @@
 //copy user model
 //link controller up
 const knex = require("../db/knex");
-const authUtils = require("../utils/auth-utils");
 
 class UserReport {
 	// This constructor is NOT how a controller creates a new user in the database.
