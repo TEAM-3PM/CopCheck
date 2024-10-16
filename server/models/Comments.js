@@ -48,7 +48,7 @@ class Comments {
   static async create(id, user_id, report_id, text) {
     // hash the plain-text password using bcrypt before storing it in the database
 
-    const query = `INSERT INTO officers ( id, user_id, report_id, text )
+    const query = `INSERT INTO comments ( id, user_id, report_id, text )
         VALUES (?, ?, ?, ?) RETURNING *`;
     const result = await knex.raw(query, [id, user_id, report_id, text]);
     const rawUpdatedPrecincts = result.rows[0];
