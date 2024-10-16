@@ -1,10 +1,14 @@
 import { useContext, useState, useEffect } from "react";
 import { useNavigate, Navigate, Link } from "react-router-dom";
 import { fetchHandler } from "../utils/fetchingUtils";
+import { createReport } from "../adapters/report-adapter";
+import CurrentUserContext from "../contexts/current-user-context";
+
 
 
 const ReportForm = () => {
     const navigate = useNavigate();
+    const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
     // store a list of officers fetched from database in an array 
     const [officers, setOfficers] = useState([]);
     // set the state of this to the officers ID
@@ -17,9 +21,8 @@ const ReportForm = () => {
     useEffect(() => {
         const fetchOfficers = async () => {
             // ADD API ENDPOINT FOR OFFICERS 
-            const response = await fetchHandler();
-            const data = await response.json();
-            setOfficers(data)
+            const [data, error] = await fetchHandler('/api/officers');
+            if (data) setOfficers(data)
         };
         fetchOfficers();
     }, [])
@@ -27,24 +30,23 @@ const ReportForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const FormData = new FormData();
-        FormData.append('officerId', selectedOfficer); // putting the officers selected ID 
-        FormData.append('reportDetails', reportDetails); // appending the details 
-        if (file) FormData.append('file', file);
+        // const FormData = new FormData();
+        // FormData.append('officerId', selectedOfficer); // putting the officers selected ID 
+        // FormData.append('reportDetails', reportDetails); // appending the details 
+        // if (file) FormData.append('file', file);
 
         // ADD API ENDPOINT 
-        const response = await fetchHandler('', {
-            method: 'POST',
-            body: FormData
-        });
+        const [data, error] = await createReport({ user_id: currentUser?.id, officer_id: selectedOfficer })
 
-        if (response.ok) {
-            alert('Your report has been submitted successfully!');
-        } else {
-            alert('Failed to submit report');
-        }
+        console.log({ report_id: data?.id })
+        // if (res.ok) {
+        //     alert('Your report has been submitted successfully!');
+        // } else {
+        //     alert('Failed to submit report');
+        // }
     };
 
+    console.log({ user_id: currentUser?.id, officer_id: selectedOfficer, user: currentUser, })
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -55,14 +57,14 @@ const ReportForm = () => {
                     <select
                         value={selectedOfficer}
                         onChange={(e) => setSelectedOfficer(e.target.value)} required>
-                        <option value="">Select an Officer</option>
+                        <option value="" disabled>Select an Officer</option>
                         {officers.map(officer => (
-                            <option key={officer.id} value={officer.id}>{officer.name}</option>
+                            <option key={officer?.id} value={officer?.id}>{officer.last_name}, {officer.first_name}</option>
                         ))}
                     </select>
                 </label>
 
-                <label >
+                <label>
                     Report Details:
                     <textarea
                         value={reportDetails}

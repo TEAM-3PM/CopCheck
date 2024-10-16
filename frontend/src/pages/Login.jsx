@@ -21,37 +21,37 @@ export default function LoginPage() {
     const [user, error] = await logUserIn(Object.fromEntries(formData));
     if (error) return setErrorText(error.message);
     setCurrentUser(user);
-    navigate(`/users/${user.id}`);
+    navigate(`/`);
   };
 
   return <>
-  <div className='wrapper'>
-    {/* <h1>Login</h1> */}
-    <form onSubmit={handleSubmit} aria-labelledby="login-heading" className='whole-form'>
-      <h2 id='login-heading'>Log back in!</h2>
+    <div className='wrapper'>
+      {/* <h1>Login</h1> */}
+      <form onSubmit={handleSubmit} aria-labelledby="login-heading" className='whole-form'>
+        <h2 id='login-heading'>Log back in!</h2>
 
-      <div className ="input-box">
-      <label htmlFor="username">Username</label>
-      <input type="text" autoComplete="username" id="username" name="username" placeholder ="Username" />
-      </div>
+        <div className="input-box">
+          <label htmlFor="username">Username</label>
+          <input type="text" autoComplete="username" id="username" name="username" placeholder="Username" />
+        </div>
 
-      <div className="input-box">
-      <label htmlFor="password">Password</label>
-      <input type="password" autoComplete="current-password" id="password" name="password" placeholder="Password"/>
-      </div>
+        <div className="input-box">
+          <label htmlFor="password">Password</label>
+          <input type="password" autoComplete="current-password" id="password" name="password" placeholder="Password" />
+        </div>
 
-      <div className="remember-forgot">
-        <label id="remember-me"> <input type="checkbox" />Remember me?</label>
-      </div>
+        <div className="remember-forgot">
+          <label id="remember-me"> <input type="checkbox" />Remember me?</label>
+        </div>
 
-      <button id="login-button"> Login!</button>
+        <button id="login-button"> Login!</button>
 
-      <div className='register-link'>
-        <p>Don't have an account? <Link to="/sign-up">Register!</Link></p>
-      </div>
-  
-      
-    </form>
+        <div className='register-link'>
+          <p>Don't have an account? <Link to="/sign-up">Register!</Link></p>
+        </div>
+
+
+      </form>
     </div>
     {!!errorText && <p>{errorText}</p>}
   </>;
