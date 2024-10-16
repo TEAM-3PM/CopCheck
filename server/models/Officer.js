@@ -40,7 +40,7 @@ class Officer {
 	static async list() {
 		const query = `SELECT * FROM officers`;
 		const result = await knex.raw(query);
-		return result.rows.map(rawUserData => new User(rawUserData));
+		return result.rows.map(rawUserData => new Officer(rawUserData));
 	}
 
 	// Fetches A single user from the users table that matches
@@ -50,7 +50,7 @@ class Officer {
 		const query = `SELECT * FROM officers WHERE id = ?`;
 		const result = await knex.raw(query, [id]);
 		const rawUserData = result.rows[0];
-		return rawUserData ? new User(rawUserData) : null;
+		return rawUserData ? new Officer(rawUserData) : null;
 	}
 
 	// Same as above but uses the username to find the user
@@ -58,7 +58,7 @@ class Officer {
 		const query = `SELECT * FROM officers WHERE last_name = ?`;
 		const result = await knex.raw(query, [last_name]);
 		const rawUserData = result.rows[0];
-		return rawUserData ? new User(rawUserData) : null;
+		return rawUserData ? new Officer(rawUserData) : null;
 	}
 
 	// Hashes the given password and then creates a new user
