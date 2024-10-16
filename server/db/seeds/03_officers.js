@@ -1,6 +1,6 @@
 /** @format */
 
-const Officer = require("../../models/Officers");
+const Officer = require("../../models/Officer");
 
 /**
  * @format

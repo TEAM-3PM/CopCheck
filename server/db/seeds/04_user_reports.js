@@ -1,6 +1,6 @@
 /** @format */
 
-const UserReport = require("../../models/UserReports");
+const UserReport = require("../../models/UserReport");
 
 /**
  * @format
