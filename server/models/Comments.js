@@ -45,11 +45,11 @@ class Comments {
   // Hashes the given password and then creates a new user
   // in the users table. Returns the newly created user, using
   // the constructor to hide the passwordHash.
-  static async create(id, user_id, report_id, text) {
+  static async create(user_id, report_id, text) {
     // hash the plain-text password using bcrypt before storing it in the database
 
-    const query = `INSERT INTO comments ( id, user_id, report_id, text )
-        VALUES (?, ?, ?, ?) RETURNING *`;
+    const query = `INSERT INTO comments ( user_id, report_id, text )
+        VALUES ( ?, ?, ?) RETURNING *`;
     const result = await knex.raw(query, [id, user_id, report_id, text]);
     const rawUpdatedPrecincts = result.rows[0];
     return new Comments(rawUpdatedPrecincts);

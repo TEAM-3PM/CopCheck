@@ -51,11 +51,11 @@ class Precincts {
   // Hashes the given password and then creates a new user
   // in the users table. Returns the newly created user, using
   // the constructor to hide the passwordHash.
-  static async create(id, name, address, borough) {
+  static async create( name, address, borough) {
     // hash the plain-text password using bcrypt before storing it in the database
 
-    const query = `INSERT INTO officers ( id, name, address, borough)
-        VALUES (?, ?, ?, ?) RETURNING *`;
+    const query = `INSERT INTO precincts ( name, address, borough)
+        VALUES ( ?, ?, ?) RETURNING *`;
     const result = await knex.raw(query, [id, name, address, borough]);
     const rawUpdatedPrecincts = result.rows[0];
     return new Precincts(rawUpdatedPrecincts);
@@ -65,7 +65,7 @@ class Precincts {
   // Returns the modified user, using the constructor to hide the passwordHash.
   static async updatePrecinctName(id, name) {
     const query = `
-        UPDATE officers
+        UPDATE precincts
         SET name=?
         WHERE id=?
         RETURNING *
@@ -77,7 +77,7 @@ class Precincts {
 
   static async updatePrecinctAddress(id, address) {
     const query = `
-        UPDATE officers
+        UPDATE precincts
         SET address=?
         WHERE id=?
         RETURNING *
@@ -89,7 +89,7 @@ class Precincts {
 
   static async updatePrecinctBorough(id, borough) {
     const query = `
-        UPDATE officers
+        UPDATE precincts
         SET borough=?
         WHERE id=?
         RETURNING *
