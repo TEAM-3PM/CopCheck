@@ -7,6 +7,7 @@ const User = require("../../models/User");
  */
 exports.seed = async knex => {
 	// Before you have models you can always just do `await knex('table_name').del`
+	await knex("user_reports").del();
 	await knex("users").del();
 
 	await knex.raw("ALTER SEQUENCE users_id_seq RESTART WITH 1");

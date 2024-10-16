@@ -1,5 +1,4 @@
 const knex = require("../db/knex");
-const authUtils = require("../utils/auth-utils");
 
 class Content {
   // Fetches ALL users from the users table, uses the constructor

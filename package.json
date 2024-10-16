@@ -9,6 +9,7 @@
 		"migrate": "cd server && npm run migrate",
 		"migrate:make": "cd server && npx knex migrate:make",
 		"seed": "cd server && npm run seed",
+		"seed:make": "cd server && npx knex seed:make",
 		"start": "cd server && npm start",
 		"dev": "cd server && npm run dev",
 		"dev:frontend": "cd frontend && npm run dev",
