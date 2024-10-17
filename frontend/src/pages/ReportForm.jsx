@@ -3,7 +3,7 @@ import { useNavigate, Navigate, Link } from "react-router-dom";
 import { fetchHandler } from "../utils/fetchingUtils";
 import { createReport } from "../adapters/report-adapter";
 import CurrentUserContext from "../contexts/current-user-context";
-
+import UploadWidget from '../components/cloudinary/UploadWidgets.jsx'
 
 
 const ReportForm = () => {
@@ -18,6 +18,8 @@ const ReportForm = () => {
     // state to check for a file (video or image)
     const [file, setFile] = useState(null);
 
+
+
     useEffect(() => {
         const fetchOfficers = async () => {
             // ADD API ENDPOINT FOR OFFICERS 
@@ -27,23 +29,20 @@ const ReportForm = () => {
         fetchOfficers();
     }, [])
 
+    const handleUpload = (uploadedFile) => {
+        setFile(uploadedFile.secure_url);
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // const FormData = new FormData();
-        // FormData.append('officerId', selectedOfficer); // putting the officers selected ID 
-        // FormData.append('reportDetails', reportDetails); // appending the details 
-        // if (file) FormData.append('file', file);
-
         // ADD API ENDPOINT 
-        const [data, error] = await createReport({ user_id: currentUser?.id, officer_id: selectedOfficer })
-
+        const [data, error] = await createReport({ user_id: currentUser?.id, officer_id: selectedOfficer, file })
+        if (data) {
+            alert('Your report has been submitted successfully!');
+        } else {
+            alert('Failed to submit report')
+        }
         console.log({ report_id: data?.id })
-        // if (res.ok) {
-        //     alert('Your report has been submitted successfully!');
-        // } else {
-        //     alert('Failed to submit report');
-        // }
     };
 
     console.log({ user_id: currentUser?.id, officer_id: selectedOfficer, user: currentUser, })
@@ -74,13 +73,11 @@ const ReportForm = () => {
 
                 <label>
                     Upload an Image or Video:
-                    <select
-                        value={file}
-                        onChange={(e) => setFile(e.target.value)}>
-                    </select>
+                    <UploadWidget onUpload={handleUpload}
+                        onClick={() => widgetRef.current.open()} />
                 </label>
 
-                <button>Submit report</button>
+                <button type="submit">Submit report</button>
             </form >
         </>
     )
