@@ -10,6 +10,7 @@ import { checkForLoggedInUser } from './adapters/auth-adapter';
 import UsersPage from './pages/Users';
 import UserPage from './pages/User';
 import ReportForm from './pages/ReportForm';
+import UploadWidget from './components/cloudinary/UploadWidgets.jsx'
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
@@ -28,7 +29,6 @@ export default function App() {
         <Route path='/users/:id' element={<UserPage />} />
         <Route path='/complaint' element={<ReportForm />} />
         <Route path='*' element={<NotFoundPage />} />
-
       </Routes>
     </main>
   </>;
