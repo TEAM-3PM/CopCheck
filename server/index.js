@@ -50,7 +50,11 @@ app.patch("/api/users/:id", checkAuthentication, userControllers.updateUser);
 // User Report Routes
 ///////////////////////////////
 
-app.post("/api/users/reports", checkAuthentication, fullUserReportControllers);
+app.post(
+	"/api/users/reports",
+	checkAuthentication,
+	fullUserReportControllers.createFullUserReport
+);
 
 ///////////////////////////////
 // Officer Routes
@@ -73,7 +77,7 @@ app.get("*", (req, res, next) => {
 // Start Listening
 ///////////////////////////////
 
-const port = process.env.PG_PORT || 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
 	console.log(`Server running at http://localhost:${port}/`);
 });
