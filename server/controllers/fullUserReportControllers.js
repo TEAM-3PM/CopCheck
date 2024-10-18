@@ -21,9 +21,14 @@ exports.createFullUserReport = async (req, res) => {
 	}
 };
 
+exports.listFullUserReports = async (req, res) => {};
+exports.listFullUserReportsForOfficer = async (req, res) => {};
+exports.listFullUserReportsForUser = async (req, res) => {};
+
 exports.requestData = req => {
 	const { userId } = req.session;
+	const { officer_id, user_id } = req.params;
 	const { officer_id, contents } = req.body;
 
-	return { currUserId: userId, officer_id, contents };
+	return { currUserId: userId, officer_id, contents, user_id };
 };
