@@ -2,12 +2,13 @@
 
 const UserReport = require("../models/UserReport");
 const Content = require("../models/Content");
+const FullUserReport = require("../models/FullUserReport");
 
 exports.createFullUserReport = async (req, res) => {
-	const { currUserId, officer_id, contents } = this.requestData(req);
+	const { currUserId, body_officer_id, contents } = this.requestData(req);
 
 	try {
-		const userReport = await UserReport.create(currUserId, officer_id);
+		const userReport = await UserReport.create(currUserId, body_officer_id);
 
 		const reportContents = await Promise.all(
 			contents.map(({ content, type }) =>
@@ -21,14 +22,55 @@ exports.createFullUserReport = async (req, res) => {
 	}
 };
 
-exports.listFullUserReports = async (req, res) => {};
-exports.listFullUserReportsForOfficer = async (req, res) => {};
-exports.listFullUserReportsForUser = async (req, res) => {};
+exports.listFullUserReports = async (req, res) => {
+	try {
+		// const userReports = await FullUserReport.list();
+
+		// res.status(200).send(userReports);
+		res.status(200).send(`test success! no params!`);
+	} catch (error) {
+		return res.status(500).send("Error retrieving report data");
+	}
+};
+
+exports.listFullUserReportsForOfficer = async (req, res) => {
+	const { param_officer_id } = this.requestData(req);
+
+	try {
+		// const userReportsByOfficerId = await FullUserReport.findByOfficerId(
+		// 	param_officer_id
+		// );
+
+		// res.status(200).send(userReportsByOfficerId);
+		res.status(200).send(`test success! officer_id : ${param_officer_id}`);
+	} catch (error) {
+		return res.status(500).send("Error retrieving report data");
+	}
+};
+
+exports.listFullUserReportsForUser = async (req, res) => {
+	const { user_id } = this.requestData(req);
+
+	try {
+		// const userReportsByUserId = await FullUserReport.findByUserId(user_id);
+
+		// res.status(200).send(userReportsByUserId);
+		res.status(200).send(`test success! user_id : ${user_id}`);
+	} catch (error) {
+		return res.status(500).send("Error retrieving report data");
+	}
+};
 
 exports.requestData = req => {
 	const { userId } = req.session;
-	const { officer_id, user_id } = req.params;
-	const { officer_id, contents } = req.body;
+	const { officer_id: param_officer_id, user_id } = req.params;
+	const { officer_id: body_officer_id, contents } = req.body;
 
-	return { currUserId: userId, officer_id, contents, user_id };
+	return {
+		currUserId: userId,
+		body_officer_id,
+		contents,
+		param_officer_id,
+		user_id,
+	};
 };
