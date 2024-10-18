@@ -1,21 +1,31 @@
-import { fetchHandler, getPatchOptions, getPostOptions } from "../utils/fetchingUtils";
+/** @format */
 
-const reportBaseUrl = '/api/reports';
+import {
+	fetchHandler,
+	getPatchOptions,
+	getPostOptions,
+} from "../utils/fetchingUtils";
 
 export const createReport = async ({ officer_id, user_id }) => {
-    return await fetchHandler(reportBaseUrl, getPostOptions({ officer_id, user_id }))
+	return await fetchHandler(
+		"/api/users/reports",
+		getPostOptions({ officer_id, user_id })
+	);
 };
 
 export const getAllReports = async () => {
-    const [reports, error] = await fetchHandler(reportBaseUrl);
-    if (error) console.log(error);
-    return reports || [];
+	const [reports, error] = await fetchHandler(___);
+	if (error) console.log(error);
+	return reports || [];
 };
 
-export const getReport = async (reportId) => {
-    return await fetchHandler(`${reportBaseUrl}/${reportId}`)
+export const getReport = async reportId => {
+	return await fetchHandler(`${___}/${reportId}`);
 };
 
 export const updateReport = async ({ reportId, report }) => {
-    return await fetchHandler(`${reportBaseUrl / { reportId }}`, getPatchOptions({ reportId, report }))
+	return await fetchHandler(
+		`${___ / { reportId }}`,
+		getPatchOptions({ reportId, report })
+	);
 };

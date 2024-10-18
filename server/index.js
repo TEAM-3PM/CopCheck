@@ -16,7 +16,7 @@ const checkAuthentication = require("./middleware/checkAuthentication");
 // controller imports
 const authControllers = require("./controllers/authControllers");
 const userControllers = require("./controllers/userControllers");
-const userReportControllers = require("./controllers/userReportControllers");
+const fullUserReportControllers = require("./controllers/fullUserReportControllers");
 const officerControllers = require("./controllers/officerControllers");
 const app = express();
 
@@ -51,9 +51,9 @@ app.patch("/api/users/:id", checkAuthentication, userControllers.updateUser);
 ///////////////////////////////
 
 app.post(
-	"/api/reports",
+	"/api/users/reports",
 	checkAuthentication,
-	userReportControllers.createUserReport
+	fullUserReportControllers.createFullUserReport
 );
 
 ///////////////////////////////
