@@ -16,8 +16,7 @@ const ReportForm = () => {
     // track the state of the report details by the user 
     const [reportDetails, setReportDetails] = useState('');
     // state to check for a file (video or image)
-    const [file, setFile] = useState(null);
-
+    const [contents, setContents] = useState([]);
 
 
     useEffect(() => {
@@ -30,14 +29,22 @@ const ReportForm = () => {
     }, [])
 
     const handleUpload = (uploadedFile) => {
-        setFile(uploadedFile.secure_url);
+        setContents((previous) =>
+            [...previous, {
+                type: uploadedFile.secure_url.includes('image') ? 'image' : 'video',
+                content: uploadedFile.secure_url
+            }]
 
-    }
+        );
+        // console.log(uploadedFile)
+    };
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         // ADD API ENDPOINT 
-        const [data, error] = await createReport({ user_id: currentUser?.id, officer_id: selectedOfficer, file })
+        const [data, error] = await createReport({ officer_id: selectedOfficer, contents })
         if (data) {
             alert('Your report has been submitted successfully!');
         } else {
@@ -46,7 +53,7 @@ const ReportForm = () => {
         console.log({ report_id: data?.id })
     };
 
-    console.log(file)
+    console.log(contents)
     // console.log({ user_id: currentUser?.id, officer_id: selectedOfficer, user: currentUser, })
     return (
         <>
