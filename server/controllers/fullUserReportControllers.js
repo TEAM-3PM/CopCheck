@@ -24,10 +24,9 @@ exports.createFullUserReport = async (req, res) => {
 
 exports.listFullUserReports = async (req, res) => {
 	try {
-		// const userReports = await FullUserReport.list();
+		const userReports = await FullUserReport.list();
 
-		// res.status(200).send(userReports);
-		res.status(200).send(`test success! no params!`);
+		res.status(200).send(userReports);
 	} catch (error) {
 		return res.status(500).send("Error retrieving report data");
 	}
@@ -37,12 +36,11 @@ exports.listFullUserReportsForOfficer = async (req, res) => {
 	const { param_officer_id } = this.requestData(req);
 
 	try {
-		// const userReportsByOfficerId = await FullUserReport.findByOfficerId(
-		// 	param_officer_id
-		// );
+		const userReportsByOfficerId = await FullUserReport.findByOfficerId(
+			param_officer_id
+		);
 
-		// res.status(200).send(userReportsByOfficerId);
-		res.status(200).send(`test success! officer_id : ${param_officer_id}`);
+		res.status(200).send(userReportsByOfficerId);
 	} catch (error) {
 		return res.status(500).send("Error retrieving report data");
 	}
@@ -52,10 +50,9 @@ exports.listFullUserReportsForUser = async (req, res) => {
 	const { user_id } = this.requestData(req);
 
 	try {
-		// const userReportsByUserId = await FullUserReport.findByUserId(user_id);
+		const userReportsByUserId = await FullUserReport.findByUserId(user_id);
 
-		// res.status(200).send(userReportsByUserId);
-		res.status(200).send(`test success! user_id : ${user_id}`);
+		res.status(200).send(userReportsByUserId);
 	} catch (error) {
 		return res.status(500).send("Error retrieving report data");
 	}
