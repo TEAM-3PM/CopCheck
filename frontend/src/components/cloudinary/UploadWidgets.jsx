@@ -13,7 +13,7 @@ const UploadWidget = ({ onUpload }) => {
             }
             console.log(result);
         });
-    }, []);
+    }, [onUpload]);
     // [onUpload]
     return (
         <button onClick={() => widgetRef.current.open()}>Upload a Image or Video</button>

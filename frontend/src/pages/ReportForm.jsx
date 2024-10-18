@@ -31,6 +31,7 @@ const ReportForm = () => {
 
     const handleUpload = (uploadedFile) => {
         setFile(uploadedFile.secure_url);
+
     }
 
     const handleSubmit = async (e) => {
@@ -45,7 +46,8 @@ const ReportForm = () => {
         console.log({ report_id: data?.id })
     };
 
-    console.log({ user_id: currentUser?.id, officer_id: selectedOfficer, user: currentUser, })
+    console.log(file)
+    // console.log({ user_id: currentUser?.id, officer_id: selectedOfficer, user: currentUser, })
     return (
         <>
             <form onSubmit={handleSubmit}>
