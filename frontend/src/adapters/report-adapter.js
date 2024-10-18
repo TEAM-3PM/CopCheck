@@ -6,10 +6,10 @@ import {
 	getPostOptions,
 } from "../utils/fetchingUtils";
 
-export const createReport = async ({ officer_id, user_id }) => {
+export const createReport = async ({ officer_id, contents }) => {
 	return await fetchHandler(
-		"/api/users/reports",
-		getPostOptions({ officer_id, user_id })
+		"/api/reports",
+		getPostOptions({ officer_id, contents })
 	);
 };
 

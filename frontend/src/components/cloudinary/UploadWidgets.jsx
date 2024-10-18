@@ -11,12 +11,12 @@ const UploadWidget = ({ onUpload }) => {
             if (!error && result && result.event === "success") {
                 onUpload(result.info); // Pass the uploaded file info back to the parent
             }
-            console.log(result);
+            // console.log(result);
         });
-    }, []);
+    }, [onUpload]);
     // [onUpload]
     return (
-        <button onClick={() => widgetRef.current.open()}>Upload a Image or Video</button>
+        <button type="button" onClick={() => widgetRef.current.open()}>Upload a Image or Video</button>
     );
 };
 
