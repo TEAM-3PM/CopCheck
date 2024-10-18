@@ -85,11 +85,14 @@ git commit -m 'message'
 
 ### Commit Message Conventions
 
-1. Where the change was made: `Frontend` or `Backend` or `Frontend-Backend`
+1. Where the change was made: `Frontend`, `Backend`, `Fullstack`, or `___` (for other)
 2. What feature was changed: Ex. `User Login`, `Officers Table`
 3. What type of change was made: Ex. `Bug Fix`, `Implementation`, `Styling`
 
 Full Ex. `Frontend - User Post - Implementation`
+
+> If you want to add a more detailed message to your commit add a second `-m` to the command
+> Full Ex. `git commit -m 'message' -m 'details'`
 
 ## Merge before you push
 

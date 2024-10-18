@@ -50,8 +50,17 @@ app.patch("/api/users/:id", checkAuthentication, userControllers.updateUser);
 // User Report Routes
 ///////////////////////////////
 
+app.get("/api/reports", fullUserReportControllers.listFullUserReports);
+app.get(
+	"/api/reports/officer/:officer_id",
+	fullUserReportControllers.listFullUserReportsForOfficer
+);
+app.get(
+	"/api/reports/user/:user_id",
+	fullUserReportControllers.listFullUserReportsForUser
+);
 app.post(
-	"/api/users/reports",
+	"/api/reports",
 	checkAuthentication,
 	fullUserReportControllers.createFullUserReport
 );
@@ -60,7 +69,7 @@ app.post(
 // Officer Routes
 ///////////////////////////////
 
-app.get("/api/officers", checkAuthentication, officerControllers.listOfficers);
+app.get("/api/officers", officerControllers.listOfficers);
 
 ///////////////////////////////
 // Fallback Route

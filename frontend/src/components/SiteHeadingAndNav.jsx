@@ -10,13 +10,14 @@ export default function SiteHeadingAndNav() {
     <nav>
       <ul>
         <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/officer-search'> Search Officer</NavLink></li>
 
         {
           currentUser
             ? <>
+              <li><NavLink to='/complaint'>File A Complaint</NavLink></li>
               <li><NavLink to='/users' end={true}>Users</NavLink></li>
               <li><NavLink to={`/users/${currentUser.id}`}>{currentUser.username}</NavLink></li>
-              <li><NavLink to='/complaint'>File A Complaint</NavLink></li>
             </>
             : <>
               <li><NavLink to='/login'>Login</NavLink></li>
