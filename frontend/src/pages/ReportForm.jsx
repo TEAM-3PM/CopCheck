@@ -44,12 +44,21 @@ const ReportForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         // ADD API ENDPOINT 
+        setContents((previous) =>
+            [...previous, {
+                type: 'text',
+                content: reportDetails
+            }]
+
+        );
+
         const [data, error] = await createReport({ officer_id: selectedOfficer, contents })
         if (data) {
             alert('Your report has been submitted successfully!');
         } else {
             alert('Failed to submit report')
         }
+        setContents([])
         console.log({ report_id: data?.id })
     };
 
