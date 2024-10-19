@@ -10,6 +10,7 @@ exports.seed = async (knex) => {
   await knex("contents").del();
   await knex("user_reports").del();
   await knex("users").del();
+  await knex("public_complaints").del();
   await knex("officers").del();
   await knex("precincts").del();
 
