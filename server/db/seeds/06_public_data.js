@@ -232,4 +232,319 @@ exports.seed = async function (knex) {
     "",
     "Exonerated"
   );
+
+  await PublicComplaints.create(
+    "10/07/2024",
+    "200914685",
+    "1",
+    "921207",
+    "DT3",
+    "Detective",
+    "073 DET",
+    "4091",
+    "669088",
+    "Force",
+    "Physical force",
+    "17 < Age <= 20",
+    "Male/Man",
+    "Black",
+    "",
+    "Unsubstantiated",
+    "",
+    "Unsubstantiated"
+  );
+
+  await PublicComplaints.create(
+    "10/07/2024",
+    "202106508",
+    "4",
+    "921207",
+    "DT1",
+    "Detective",
+    "073 DET",
+    "8506",
+    "1178410",
+    "Abuse of Authority",
+    "Failure to provide RTKA card",
+    "20 < Age <= 24",
+    "Female/Woman",
+    "Black",
+    "",
+    "Substantiated (Formalized Training)",
+    "No Disciplinary Action-DUP",
+    "Substantiated"
+  );
+
+  await PublicComplaints.create(
+    "10/07/2024",
+    "200704673",
+    "1",
+    "921207",
+    "DT3",
+    "Detective",
+    "073 DET",
+    "3193",
+    "567425",
+    "Discourtesy",
+    "Word",
+    "17 < Age <= 20",
+    "Male/Man",
+    "Black",
+    "",
+    "Unsubstantiated",
+    "",
+    "Unsubstantiated"
+  );
+
+  await PublicComplaints.create(
+    "10/07/2024",
+    "200705403",
+    "1",
+    "921207",
+    "DT3",
+    "Detective",
+    "073 DET",
+    "3210",
+    "608873",
+    "Abuse of Authority",
+    "Premises entered and/or searched",
+    "",
+    "NA",
+    "",
+    "",
+    "Exonerated",
+    "",
+    "Exonerated"
+  );
+
+  await PublicComplaints.create(
+    "10/07/2024",
+    "200203855",
+    "1",
+    "921207",
+    "POM",
+    "Police Officer",
+    "073 DET",
+    "1436",
+    "294126",
+    "Abuse of Authority",
+    "Premises entered and/or searched",
+    "",
+    "NA",
+    "",
+    "",
+    "Exonerated",
+    "",
+    "Exonerated"
+  );
+
+  await PublicComplaints.create(
+    "10/07/2024",
+    "202106508",
+    "4",
+    "921207",
+    "DT1",
+    "Detective",
+    "073 DET",
+    "8506",
+    "1178408",
+    "Abuse of Authority",
+    "Refusal to provide shield number",
+    "20 < Age <= 24",
+    "Female/Woman",
+    "Black",
+    "",
+    "Unable to Determine",
+    "",
+    "Unsubstantiated"
+  );
+
+  await PublicComplaints.create(
+    "10/07/2024",
+    "200705403",
+    "1",
+    "921207",
+    "DT3",
+    "Detective",
+    "073 DET",
+    "3210",
+    "616054",
+    "Force",
+    "Chokehold",
+    "17 < Age <= 20",
+    "Male/Man",
+    "Hispanic",
+    "",
+    "Unfounded",
+    "",
+    "Unfounded"
+  );
+
+  await PublicComplaints.create(
+    "10/07/2024",
+    "202107744",
+    "3",
+    "921207",
+    "DT1",
+    "Detective",
+    "073 DET",
+    "8569",
+    "1212176",
+    "Abuse of Authority",
+    "Seizure of property",
+    "34 < Age <= 39",
+    "Female/Woman",
+    "Hispanic",
+    "",
+    "Unable to Determine",
+    "",
+    "Unable to Determine"
+  );
+
+  await PublicComplaints.create(
+    "10/07/2024",
+    "200203674",
+    "2",
+    "921207",
+    "POM",
+    "Police Officer",
+    "073 DET",
+    "1434",
+    "304669",
+    "Discourtesy",
+    "Demeanor/tone",
+    "24 < Age <= 29",
+    "Male/Man",
+    "Black",
+    "",
+    "Unsubstantiated",
+    "",
+    "Unsubstantiated"
+  );
+
+  await PublicComplaints.create(
+    "10/07/2024",
+    "200710254",
+    "2",
+    "921207",
+    "DT3",
+    "Detective",
+    "073 DET",
+    "3288",
+    "524857",
+    "Abuse of Authority",
+    "Premises entered and/or searched",
+    "",
+    "NA",
+    "",
+    "",
+    "Exonerated",
+    "",
+    "Exonerated"
+  );
+
+  await PublicComplaints.create(
+    "10/07/2024",
+    "200107789",
+    "3",
+    "921207",
+    "POM",
+    "Police Officer",
+    "073 DET",
+    "1252",
+    "290641",
+    "Abuse of Authority",
+    "Question and/or stop",
+    "29 < Age <= 34",
+    "Male/Man",
+    "Black",
+    "",
+    "Exonerated",
+    "",
+    "Exonerated"
+  );
+
+  await PublicComplaints.create(
+    "10/07/2024",
+    "200705403",
+    "1",
+    "921207",
+    "DT3",
+    "Detective",
+    "073 DET",
+    "3210",
+    "609331",
+    "Force",
+    "Physical force",
+    "17 < Age <= 20",
+    "Male/Man",
+    "Hispanic",
+    "",
+    "Exonerated",
+    "",
+    "Exonerated"
+  );
+
+  await PublicComplaints.create(
+    "10/07/2024",
+    "202106508",
+    "4",
+    "921207",
+    "DT1",
+    "Detective",
+    "073 DET",
+    "8506",
+    "1185466",
+    "Abuse of Authority",
+    "Other",
+    "20 < Age <= 24",
+    "Female/Woman",
+    "Black",
+    "",
+    "Substantiated (Command Discipline B)",
+    "No Disciplinary Action-DUP",
+    "Substantiated"
+  );
+
+  await PublicComplaints.create(
+    "10/07/2024",
+    "202107744",
+    "3",
+    "921207",
+    "DT1",
+    "Detective",
+    "073 DET",
+    "8569",
+    "1210899",
+    "Abuse of Authority",
+    "Search of recording device",
+    "34 < Age <= 39",
+    "Female/Woman",
+    "Hispanic",
+    "",
+    "Unable to Determine",
+    "",
+    "Unable to Determine"
+  );
+
+  await PublicComplaints.create(
+    "10/07/2024",
+    "200800577",
+    "2",
+    "921207",
+    "DT3",
+    "Detective",
+    "073 DET",
+    "3480",
+    "606935",
+    "Abuse of Authority",
+    "Premises entered and/or searched",
+    "",
+    "NA",
+    "",
+    "",
+    "Unsubstantiated",
+    "",
+    "Exonerated"
+  );
 };
