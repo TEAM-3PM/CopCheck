@@ -88,4 +88,4 @@ class PublicComplaints {
   }
 }
 
-module.exports = PublicReports;
+module.exports = PublicComplaints;
