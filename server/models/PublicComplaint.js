@@ -55,7 +55,7 @@ class PublicComplaints {
     ccrb_allegation_disposition,
     nypd_allegation_disposition,
     investigator_recommended_allegation_disposition )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING *`;
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING *`;
     const result = await knex.raw(query, [
       as_of_date,
       complaint_id,
