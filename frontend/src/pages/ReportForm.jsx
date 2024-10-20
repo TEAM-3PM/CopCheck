@@ -1,5 +1,3 @@
-/** @format */
-
 import { useContext, useState, useEffect } from "react";
 import { useNavigate, Navigate, Link } from "react-router-dom";
 import { fetchHandler } from "../utils/fetchingUtils";
@@ -8,109 +6,114 @@ import CurrentUserContext from "../contexts/current-user-context";
 import UploadWidget from "../components/cloudinary/UploadWidgets.jsx";
 
 const ReportForm = () => {
-	const navigate = useNavigate();
-	const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
-	// store a list of officers fetched from database in an array
-	const [officers, setOfficers] = useState([]);
-	// set the state of this to the officers ID
-	const [selectedOfficer, setSelectedOfficer] = useState("");
-	// track the state of the report details by the user
-	const [reportDetails, setReportDetails] = useState("");
-	// state to check for a file (video or image)
-	const [contents, setContents] = useState([]);
+    const navigate = useNavigate();
+    const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+    // store a list of officers fetched from database in an array
+    const [officers, setOfficers] = useState([]);
+    // set the state of this to the officers ID
+    const [selectedOfficer, setSelectedOfficer] = useState("");
+    // track the state of the report details by the user
+    const [reportDetails, setReportDetails] = useState("");
+    // state to check for a file (video or image)
+    const [contents, setContents] = useState([]);
 
-	useEffect(() => {
-		const fetchOfficers = async () => {
-			// ADD API ENDPOINT FOR OFFICERS
-			const [data, error] = await fetchHandler("/api/officers");
-			if (data) setOfficers(data);
-		};
-		fetchOfficers();
-	}, []);
+    useEffect(() => {
+        const fetchOfficers = async () => {
+            // ADD API ENDPOINT FOR OFFICERS
+            const [data, error] = await fetchHandler("/api/officers");
+            if (data) setOfficers(data);
+        };
+        fetchOfficers();
+    }, []);
 
-	const handleUpload = uploadedFile => {
-		setContents(previous => [
-			...previous,
-			{
-				type: uploadedFile.secure_url.includes("image") ? "image" : "video",
-				content: uploadedFile.secure_url,
-			},
-		]);
-		// console.log(uploadedFile)
-	};
+    const handleUpload = uploadedFile => {
+        // console.log(uploadedFile);
+        setContents(previous => [
+            ...previous,
+            uploadedFile.resource_type === "image"
+                ? {
+                    type: uploadedFile.resource_type,
+                    content: uploadedFile.secure_url,
+                }
+                : {
+                    type: uploadedFile.resource_type,
+                    content: uploadedFile.public_id,
+                },
+        ]);
+    };
 
-	const handleSubmit = async e => {
-		e.preventDefault();
-		// ADD API ENDPOINT
+    const handleSubmit = async e => {
+        e.preventDefault();
+        // ADD API ENDPOINT
 
-		const [data, error] = await createReport({
-			officer_id: selectedOfficer,
-			contents: [
-				{
-					type: "text",
-					content: reportDetails,
-				},
-				...contents,
-			],
-		});
+        const [data, error] = await createReport({
+            officer_id: selectedOfficer,
+            contents: [
+                {
+                    type: "text",
+                    content: reportDetails,
+                },
+                ...contents,
+            ],
+        });
 
-		if (data) {
-			alert("Your report has been submitted successfully!");
-		} else {
-			alert("Failed to submit report");
-		}
-		setContents([]);
-		console.log({ report_id: data?.id });
-	};
+        if (data) {
+            alert("Your report has been submitted successfully!");
+        } else {
+            alert("Failed to submit report");
+        }
+        setContents([]);
+        console.log({ report_id: data?.id });
+    };
 
-	console.log(contents);
-	// console.log({ user_id: currentUser?.id, officer_id: selectedOfficer, user: currentUser, })
-	return (
-		<>
-			<form onSubmit={handleSubmit}>
-				<h2>Create a report</h2>
+    console.log(contents);
+    // console.log({ user_id: currentUser?.id, officer_id: selectedOfficer, user: currentUser, })
+    return (
+        <>
+            <form onSubmit={handleSubmit}>
+                <h2>Create a report</h2>
 
-				<label>
-					Select Officer:
-					<select
-						value={selectedOfficer}
-						onChange={e => setSelectedOfficer(e.target.value)}
-						required>
-						<option
-							value=''
-							disabled>
-							Select an Officer
-						</option>
-						{officers.map(officer => (
-							<option
-								key={officer?.id}
-								value={officer?.id}>
-								{officer.last_name}, {officer.first_name}
-							</option>
-						))}
-					</select>
-				</label>
+                <label>
+                    Select Officer:
+                    <select
+                        value={selectedOfficer}
+                        onChange={e => setSelectedOfficer(e.target.value)}
+                        required>
+                        <option
+                            value=''
+                            disabled>
+                            Select an Officer
+                        </option>
+                        {officers.map(officer => (
+                            <option
+                                key={officer?.id}
+                                value={officer?.id}>
+                                {officer.last_name}, {officer.first_name}
+                            </option>
+                        ))}
+                    </select>
+                </label>
 
-				<label>
-					Report Details:
-					<textarea
-						value={reportDetails}
-						onChange={e => setReportDetails(e.target.value)}
-						required></textarea>
-				</label>
+                <label>
+                    Report Details:
+                    <textarea
+                        value={reportDetails}
+                        onChange={e => setReportDetails(e.target.value)}
+                        required></textarea>
+                </label>
 
-				<label>
-					Upload an Image or Video:
-					<UploadWidget
-						onUpload={handleUpload}
-						onClick={() => widgetRef.current.open()}
-					/>
-				</label>
+                <label>
+                    Upload an Image or Video:
+                    <UploadWidget
+                        onUpload={handleUpload}
+                        onClick={() => widgetRef.current.open()}
+                    />
+                </label>
 
-				<button type='submit'>Submit report</button>
-			</form>
-		</>
-	);
+                <button type='submit'>Submit report</button>
+            </form>
+        </>
+    );
 };
 
 export default ReportForm;
