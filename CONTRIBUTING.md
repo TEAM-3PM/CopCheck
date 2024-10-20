@@ -114,8 +114,6 @@ git merge main
 
 You may need to resolve merge conflicts at this point. To resolve a conflict, delete the `<<<<<<< HEAD`, `=======`, and `>>>>>>> main` markers and keep the code that you want.
 
-![](./merge-conflict.png)
-
 Finally, make a new commit to finish resolving these conflicts:
 
 ```
@@ -123,6 +121,10 @@ git add -A
 git commit -m 'merging main into this branch'
 git push
 ```
+
+If there are no merge conflicts and you are instead asked to give a commit message as to why you want to merge and a vim file comes up please refer to this link: [vim file Need-To-Know Commands](https://www.phys.hawaii.edu/~mza/PC/vim.html)
+
+> Note: To leave any editing (such as Insertion mode) hit the `esc` key on your keyboard!
 
 ## Push and make a PR
 
