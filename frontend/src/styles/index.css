@@ -1,207 +1,243 @@
+/** @format */
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 .whole-form {
-  display: flex;
-  flex-direction: column;
-  border-style: none;
-  align-items: center;
-  width: 50%;
-
+	display: flex;
+	flex-direction: column;
+	border-style: none;
+	align-items: center;
+	width: 50%;
 }
 
-body {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  margin: 0;
+/* General utils */
+.flexbox {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
 
+.col-flex {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+}
+
+.fill-width {
+	width: 100%;
+}
+
+.fill-height {
+	height: 100%;
+}
+
+.no-border {
+	border-style: none;
+}
+
+/* Specific stuff */
+
+#search-bar > * {
+	margin: 0;
+	border-width: 3px;
+	padding: 3px 10px;
+	border-color: black;
+}
+
+#search-bar > button:enabled {
+	background-color: dodgerblue;
+	color: white;
+}
+
+/* other stuff ig */
+body {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	margin: 0;
 }
 
 input,
 label {
-  display: block;
+	display: block;
 }
 
 input {
-  margin-bottom: 1rem;
+	margin-bottom: 1rem;
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  background: #000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5rem 1rem;
+	background: #000;
 }
 
 #logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: #FFF;
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-decoration: none;
+	color: #fff;
 }
 
 nav ul {
-  display: flex;
-  gap: 1rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
+	display: flex;
+	gap: 1rem;
+	padding: 0;
+	margin: 0;
+	list-style: none;
 }
 
 nav a {
-  display: block;
-  color: #FFF;
+	display: block;
+	color: #fff;
 }
 
 form {
-  padding: 1rem;
-  border: 1px solid #CCC;
-  width: 15rem;
-  margin: 1rem auto;
+	padding: 1rem;
+	border: 1px solid #ccc;
+	width: 15rem;
+	margin: 1rem auto;
 }
 
 /* automatically added by NavLink component */
 .active {
-  color: #EEBC32;
-  font-weight: bold;
-  font-style: italic;
+	color: #eebc32;
+	font-weight: bold;
+	font-style: italic;
 }
-
-
 
 /* Starting from here is the login CSS*/
 
 .wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* width: 420px; */
-  /* background: slateblue; */
-  /* color: #FFF; */
-  border-radius: 10px;
-  padding: 30px 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* width: 420px; */
+	/* background: slateblue; */
+	/* color: #FFF; */
+	border-radius: 10px;
+	padding: 30px 40px;
 }
 
 .wrapper h1 {
-  font-size: 36px;
-  text-align: center;
+	font-size: 36px;
+	text-align: center;
 }
 
 #username {
-  width: 350px;
+	width: 350px;
 }
 
 #password {
-  width: 350px;
+	width: 350px;
 }
 
 #fullname {
-  width: 350px;
+	width: 350px;
 }
 
 #email {
-  width: 350px;
+	width: 350px;
 }
 
 #age {
-  width: 350px;
+	width: 350px;
 }
 
 #race {
-  width: 350px;
+	width: 350px;
 }
 
 #gender {
-  width: 350px;
+	width: 350px;
 }
 
 .wrapper input-box {
-  position: relative;
-  width: 100%;
-  height: 50px;
-  background: black;
-  margin: 30px 0;
+	position: relative;
+	width: 100%;
+	height: 50px;
+	background: black;
+	margin: 30px 0;
 }
 
 .input-box input {
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  border: none;
-  border: 2px solid rgb(68, 66, 66);
-  outline: none;
-  border-radius: 40px;
-  font-size: 16px;
-  color: black;
-  padding: 20px 45px 20px 20px;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	border: none;
+	border: 2px solid rgb(68, 66, 66);
+	outline: none;
+	border-radius: 40px;
+	font-size: 16px;
+	color: black;
+	padding: 20px 45px 20px 20px;
 }
 
 .input-box::placeholder {
-  color-scheme: black;
+	color-scheme: black;
 }
 
 .wrapper .remember-forgot {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14.5px;
-  margin: -15px 0 15px;
+	display: flex;
+	justify-content: space-between;
+	font-size: 14.5px;
+	margin: -15px 0 15px;
 }
 
-
 .remember-forgot label input {
-  accent-color: #fff;
-  margin-right: 4px;
+	accent-color: #fff;
+	margin-right: 4px;
 }
 
 .remember-forgot a {
-  color: #fff;
-  text-decoration: none;
+	color: #fff;
+	text-decoration: none;
 }
 
 #remember-me {
-  display: flex;
+	display: flex;
 }
 
 .remember-forgot a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 #login-button {
-  width: 250px;
+	width: 250px;
 }
 
 .wrapper button {
-  width: 30%;
-  height: 45px;
-  background: #fff;
-  border: none;
-  outline: none;
-  border-radius: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .3);
-  cursor: pointer;
-  font-size: 16px;
-  color: #333;
-  font-weight: 700;
+	width: 30%;
+	height: 45px;
+	background: #fff;
+	border: none;
+	outline: none;
+	border-radius: 40px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	cursor: pointer;
+	font-size: 16px;
+	color: #333;
+	font-weight: 700;
 }
 
-
-
 .wrapper .register-link {
-  font-size: 14.5px;
-  text-align: center;
-  margin-top: 20px;
-  margin: 20px 0 15px
+	font-size: 14.5px;
+	text-align: center;
+	margin-top: 20px;
+	margin: 20px 0 15px;
 }
 
 .register-link p a {
-  color: blue;
-  text-decoration: none;
-  font-weight: 600;
+	color: blue;
+	text-decoration: none;
+	font-weight: 600;
 }
 
 .register-link p a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
