@@ -18,7 +18,7 @@ const authControllers = require("./controllers/authControllers");
 const userControllers = require("./controllers/userControllers");
 const fullUserReportControllers = require("./controllers/fullUserReportControllers");
 const officerControllers = require("./controllers/officerControllers");
-const precinctControllers = require("./controllers/precinctsController");
+const precinctControllers = require("./controllers/precinctControllers");
 const app = express();
 
 // middleware
