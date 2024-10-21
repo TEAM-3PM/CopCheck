@@ -77,16 +77,16 @@ app.get(
 	officerControllers.resultsOfficerByLastName
 );
 //search by badge_no
-app.get(
-	"/api/officers/search/badge_num/:badge_num",
-	officerControllers.resultsOfficerByBadgeNo
-);
+// app.get(
+// 	"/api/officers/search/badge_num/:badge_num",
+// 	officerControllers.resultsOfficerByBadgeNo
+// );
 
 ///////////////////////////////
 // Precinct Routes
 ///////////////////////////////
 
-app.get("/api/precincts/search/name/:name", precinctControllers);
+// app.get("/api/precincts/search/name/:name", precinctControllers);
 
 ///////////////////////////////
 // Fallback Route
