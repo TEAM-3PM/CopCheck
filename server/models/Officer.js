@@ -49,8 +49,7 @@ class Officer {
 	static async find(id) {
 		const query = `SELECT * FROM officers WHERE id = ?`;
 		const result = await knex.raw(query, [id]);
-		const rawUserData = result.rows[0];
-		return rawUserData ? new Officer(rawUserData) : null;
+		return result.rows[0] ? result.rows[0] : null;
 	}
 
 	// Same as above but uses the username to find the user

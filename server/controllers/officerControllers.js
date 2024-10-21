@@ -2,6 +2,20 @@
 
 const Officer = require("../models/Officer");
 
+exports.findById = async (req, res) => {
+	const { id } = this.requestData(req);
+
+	try {
+		const officer = await Officer.find(id);
+		if (!officer) return res.sendStatus(404);
+
+		res.status(200).send(officer);
+	} catch (error) {
+		console.log(error);
+		res.status(500).send("Error retrieving officer");
+	}
+};
+
 exports.listOfficers = async (req, res) => {
 	const officers = await Officer.list();
 	res.send(officers);
@@ -34,7 +48,7 @@ exports.resultsOfficerByBadgeNum = async (req, res) => {
 };
 
 exports.requestData = req => {
-	const { last_name, badge_num } = req.params;
+	const { id, last_name, badge_num } = req.params;
 
-	return { last_name, badge_num };
+	return { id, last_name, badge_num };
 };

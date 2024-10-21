@@ -69,6 +69,7 @@ app.post(
 // Officer Routes
 ///////////////////////////////
 
+app.get("/api/officers/:id", officerControllers.findById);
 app.get("/api/officers", officerControllers.listOfficers);
 
 //search by last name
