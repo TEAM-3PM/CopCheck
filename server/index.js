@@ -18,6 +18,7 @@ const authControllers = require("./controllers/authControllers");
 const userControllers = require("./controllers/userControllers");
 const fullUserReportControllers = require("./controllers/fullUserReportControllers");
 const officerControllers = require("./controllers/officerControllers");
+const precinctControllers = require("./controllers/precinctsController");
 const app = express();
 
 // middleware
@@ -87,7 +88,10 @@ app.get(
 // Precinct Routes
 ///////////////////////////////
 
-// app.get("/api/precincts/search/name/:name", precinctControllers);
+app.get(
+	"/api/precincts/search/:query",
+	precinctControllers.resultsPrecinctByQuery
+);
 
 ///////////////////////////////
 // Fallback Route

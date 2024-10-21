@@ -65,11 +65,10 @@ class Officer {
 		return result.rows;
 	}
 
-	static async findByPrecinct(precinct) {
-		const query = `SELECT * FROM officers WHERE last_name = ?`;
-		const result = await knex.raw(query, [last_name]);
-		const rawUserData = result.rows[0];
-		return rawUserData ? new Officer(rawUserData) : null;
+	static async findByPrecinct(precinct_id) {
+		const query = `SELECT * FROM officers WHERE precinct_id = ?`;
+		const result = await knex.raw(query, [precinct_id]);
+		return result.rows;
 	}
 
 	// Hashes the given password and then creates a new user
