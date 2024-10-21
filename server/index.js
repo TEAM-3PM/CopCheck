@@ -76,7 +76,7 @@ app.get(
 	"/api/officers/search/last_name/:last_name",
 	officerControllers.resultsOfficerByLastName
 );
-// search by badge_no
+// search by badge_num
 app.get(
 	"/api/officers/search/badge_num/:badge_num",
 	officerControllers.resultsOfficerByBadgeNum

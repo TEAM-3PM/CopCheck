@@ -15,6 +15,7 @@ exports.resultsOfficerByLastName = async (req, res) => {
 
 		res.status(200).send(searchResults);
 	} catch (error) {
+		console.log(error);
 		res.status(500).send("Error retrieving officers");
 	}
 };
@@ -27,6 +28,7 @@ exports.resultsOfficerByBadgeNum = async (req, res) => {
 
 		res.status(200).send(searchResults);
 	} catch (error) {
+		console.log(error);
 		res.status(500).send("Error retrieving officers");
 	}
 };
@@ -34,5 +36,5 @@ exports.resultsOfficerByBadgeNum = async (req, res) => {
 exports.requestData = req => {
 	const { last_name, badge_num } = req.params;
 
-	return { last_name };
+	return { last_name, badge_num };
 };

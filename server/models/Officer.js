@@ -16,7 +16,7 @@ class Officer {
 		precinct_id,
 		first_name,
 		last_name,
-		badge_no,
+		badge_num,
 		last_updated,
 		active_duty,
 	}) {
@@ -25,7 +25,7 @@ class Officer {
 		this.precinct_id = precinct_id;
 		this.first_name = first_name;
 		this.last_name = last_name;
-		this.badge_no = badge_no;
+		this.badge_num = badge_num;
 		this.last_updated = last_updated;
 		this.active_duty = active_duty;
 	}
@@ -57,6 +57,12 @@ class Officer {
 	static async findByLastName(last_name) {
 		const query = `SELECT * FROM officers WHERE LOWER(last_name) LIKE ?`;
 		const result = await knex.raw(query, [`%${last_name.toLowerCase()}%`]);
+		return result.rows;
+	}
+
+	static async findByBadgeNum(badge_num) {
+		const query = `SELECT * FROM officers WHERE badge_num = ?`;
+		const result = await knex.raw(query, [badge_num]);
 		return result.rows;
 	}
 
@@ -141,14 +147,14 @@ class Officer {
 		return rawUpdatedOfficer ? new Officer(rawUpdatedOfficer) : null;
 	}
 
-	static async updateBadgeNum(id, badge_no) {
+	static async updateBadgeNum(id, badge_num) {
 		const query = `
         UPDATE officers
-        SET badge_no=?
+        SET badge_num=?
         WHERE id=?
         RETURNING *
       `;
-		const result = await knex.raw(query, [badge_no, id]);
+		const result = await knex.raw(query, [badge_num, id]);
 		const rawUpdatedOfficer = result.rows[0];
 		return rawUpdatedOfficer ? new Officer(rawUpdatedOfficer) : null;
 	}
