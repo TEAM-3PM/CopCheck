@@ -1,6 +1,7 @@
 /** @format */
 
 const Officer = require("../models/Officer");
+const PublicComplaint = require('../models/PublicComplaint')
 
 exports.findById = async (req, res) => {
 	const { id } = this.requestData(req);
@@ -8,6 +9,25 @@ exports.findById = async (req, res) => {
 	try {
 		const officer = await Officer.find(id);
 		if (!officer) return res.sendStatus(404);
+
+		res.status(200).send(officer);
+	} catch (error) {
+		console.log(error);
+		res.status(500).send("Error retrieving officer");
+	}
+};
+
+
+exports.findByIdWithComplaints = async (req, res) => {
+	const { id } = this.requestData(req);
+
+	try {
+		const officer = await Officer.find(id);
+		if (!officer) return res.sendStatus(404);
+
+		officer.publicComplaints = await PublicComplaint.findOfficerByTaxId(
+			officer.tax_id
+		);
 
 		res.status(200).send(officer);
 	} catch (error) {

@@ -9,18 +9,27 @@ const OfficerSpecs = () => {
     const [reports, setReports] = useState([]);
 
     useEffect(() => {
-        // const fetchOfficer = async () => {
-        //     try {
-        //         const [data, error] = await fetchHandler(`/api/officers/${officerId}`);
-        //         if (data) {
-        //             setOfficer(data);
-        //         } else {
-        //             console.error("Error fetching officer:", error);
-        //         }
-        //     } catch (error) {
-        //         console.error("Error fetching officer:", error);
-        //     }
-        // };
+        const fetchOfficer = async () => {
+            try {
+                const [data, error] = await fetchHandler(`/api/officers/${officerId}/complaints`);
+                if (data) {
+                    setOfficer(data);
+                } else {
+                    console.error("Error fetching officer:", error);
+                }
+            } catch (error) {
+                console.error("Error fetching officer:", error);
+            }
+        };
+
+
+        const fetchPublicComplaints = async () => {
+            try {
+
+            } catch (error) {
+
+            }
+        }
 
         const fetchReports = async () => {
             try {
@@ -34,8 +43,8 @@ const OfficerSpecs = () => {
                 console.error("Error fetching reports:", error);
             }
         };
-
-        // fetchOfficer();
+        fetchPublicComplaints();
+        fetchOfficer();
         fetchReports();
     }, [officerId]);
 

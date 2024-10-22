@@ -19,6 +19,7 @@ const userControllers = require("./controllers/userControllers");
 const fullUserReportControllers = require("./controllers/fullUserReportControllers");
 const officerControllers = require("./controllers/officerControllers");
 const precinctControllers = require("./controllers/precinctControllers");
+const publicComplaintControllers = require("./controllers/publicComplaintControllers");
 const app = express();
 
 // middleware
@@ -70,7 +71,7 @@ app.post(
 // Officer Routes
 ///////////////////////////////
 
-app.get("/api/officers/:id", officerControllers.findById);
+app.get("/api/officers/:id/complaints", officerControllers.findByIdWithComplaints);
 app.get("/api/officers", officerControllers.listOfficers);
 
 //search by last name
@@ -92,6 +93,17 @@ app.get(
 	"/api/precincts/search/:query",
 	precinctControllers.resultsPrecinctByQuery
 );
+
+
+///////////////////////////////
+// Public Complaint Routes
+///////////////////////////////
+
+// app.get(
+// 	"/api/public_complaints/:tax_id",
+// 	publicComplaintControllers.getOfficerByTaxId
+// );
+
 
 ///////////////////////////////
 // Fallback Route

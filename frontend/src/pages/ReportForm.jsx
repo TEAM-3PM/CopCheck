@@ -63,7 +63,7 @@ const ReportForm = () => {
             alert("Failed to submit report");
         }
         setContents([]);
-        console.log({ report_id: data?.id });
+        navigate(`/officers/${selectedOfficer}`)
     };
 
     console.log(contents);

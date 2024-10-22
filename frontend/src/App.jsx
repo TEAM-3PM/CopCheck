@@ -13,6 +13,7 @@ import ReportForm from './pages/ReportForm';
 import OfficerSearchForm from './pages/OfficerSearchForm.jsx';
 import VideoPlayer from './components/cloudinary/VideoPlayer.jsx';
 import ReportsList from './pages/ListOfReports.jsx';
+import OfficerSpecs from './pages/OfficerSpecs.jsx';
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
@@ -33,6 +34,7 @@ export default function App() {
         <Route path='/officer-search' element={<OfficerSearchForm />} />
         <Route path='/reports' element={<ReportsList />} />
         <Route path='*' element={<NotFoundPage />} />
+        <Route path='/officers/:officerId' element={<OfficerSpecs />} />
 
       </Routes>
     </main>

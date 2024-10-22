@@ -5,10 +5,10 @@ const UserReport = require("./UserReport");
 const Content = require("./Content");
 
 class FullUserReport {
-	//get all full reports for officer
+  //get all full reports for officer
 
-	static async list() {
-		const query = `
+  static async list() {
+    const query = `
     SELECT 
       user_reports.id AS report_id,
       user_reports.user_id,
@@ -23,12 +23,12 @@ class FullUserReport {
     JOIN 
       contents ON user_reports.id = contents.report_id;`;
 
-		const result = await knex.raw(query);
-		return result.rows;
-	}
+    const result = await knex.raw(query);
+    return result.rows;
+  }
 
-	static async findByOfficerId(idQuery) {
-		const query = `
+  static async findByOfficerId(idQuery) {
+    const query = `
     SELECT 
       user_reports.id AS report_id,
       user_reports.user_id,
@@ -45,12 +45,13 @@ class FullUserReport {
     WHERE 
       officer_id = ?;`;
 
-		const result = await knex.raw(query, [idQuery]);
-		return result.rows;
-	}
+    const result = await knex.raw(query, [idQuery]);
+    return result.rows;
+  }
 
-	static async findByUserId(idQuery) {
-		const query = `
+
+  static async findByUserId(idQuery) {
+    const query = `
     SELECT 
       user_reports.id AS report_id,
       user_reports.user_id,
@@ -67,13 +68,13 @@ class FullUserReport {
     WHERE 
       user_id = ?;`;
 
-		const result = await knex.raw(query, [idQuery]);
-		return result.rows;
-	}
+    const result = await knex.raw(query, [idQuery]);
+    return result.rows;
+  }
 
-	static async deleteAll() {
-		return knex("officers").del();
-	}
+  static async deleteAll() {
+    return knex("officers").del();
+  }
 }
 
 module.exports = FullUserReport;
