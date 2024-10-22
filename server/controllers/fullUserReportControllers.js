@@ -42,6 +42,7 @@ exports.listFullUserReportsForOfficer = async (req, res) => {
 
 		res.status(200).send(userReportsByOfficerId);
 	} catch (error) {
+		console.log(error)
 		return res.status(500).send("Error retrieving report data");
 	}
 };
@@ -71,3 +72,4 @@ exports.requestData = req => {
 		user_id,
 	};
 };
+

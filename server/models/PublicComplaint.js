@@ -16,6 +16,12 @@ class PublicComplaints {
     return rawPublicData ? new PublicComplaints(rawPublicData) : null;
   }
 
+  static async findOfficerByTaxId(tax_id) {
+    const query = `SELECT * FROM public_complaints WHERE tax_id = ?`;
+    const result = await knex.raw(query, [tax_id]);
+    return result.rows;
+  }
+
   static async create(
     as_of_date,
     complaint_id,
