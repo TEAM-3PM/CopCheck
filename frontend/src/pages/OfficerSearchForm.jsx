@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { fetchHandler } from "../utils/fetchingUtils";
 import { useNavigate } from "react-router-dom";
-
+import { SearchResultsBar } from "../components/SearchResultsCard";
 const OfficerSearchForm = () => {
   const navigate = useNavigate();
   const [searchBy, setSearchBy] = useState("lastName");
@@ -9,6 +9,8 @@ const OfficerSearchForm = () => {
   const [badgeNumber, setBadgeNumber] = useState("");
   const [officerInfo, setOfficerInfo] = useState(null);
   const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchHistory, setSearchHistory] = useState([]);
 
   const handleOfficerSearchType = (e) => {
     const value = e.target.value;
@@ -29,14 +31,15 @@ const OfficerSearchForm = () => {
         const response = await fetchHandler(
           `/api/officers/search/last_name/${lastName}`
         );
-        console.log(response);
-        setOfficerInfo(response[0][0]);
+        setSearchTerm(lastName);
+        setOfficerInfo(response[0]);
       } else {
         const response = await fetchHandler(
           `/api/officers/search/badge_num/${badgeNumber}`
         );
         console.log(response);
-        setOfficerInfo(response[0][0]);
+        setSearchTerm(badgeNumber);
+        setOfficerInfo(response[0]);
       }
     } catch (err) {
       setError("Officer not found or error fetching data.");
@@ -95,13 +98,23 @@ const OfficerSearchForm = () => {
       </form>
       {officerInfo && (
         <div>
-          <h3>Officer Information</h3>
-          <p>Last Name: {officerInfo.last_name}</p>
-          <p>First Name: {officerInfo.first_name}</p>
-          <p>Badge Number: {officerInfo.badge_num}</p>
-          <p>Information: {officerInfo.info}</p>
+          <h3>You Searched</h3>
+          <p>'{searchTerm}'</p>
+          <p>{officerInfo?.length} Results Found</p>
         </div>
       )}
+      <section className="container">
+        {officerInfo?.map((foundCop) => {
+          return (
+            <SearchResultsBar
+              key={foundCop.id}
+              firstName={foundCop.first_name}
+              lastName={foundCop.last_name}
+              badgeNumber={foundCop.badge_num}
+            />
+          );
+        })}
+      </section>
 
       {error && <p>{error}</p>}
     </div>
