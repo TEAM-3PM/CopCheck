@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { fetchHandler } from "../utils/fetchingUtils";
 import { useNavigate } from "react-router-dom";
-
+import { SearchResultsBar } from "../components/SearchResultsCard";
 const OfficerSearchForm = () => {
   const navigate = useNavigate();
   const [searchBy, setSearchBy] = useState("lastName");
@@ -30,13 +30,13 @@ const OfficerSearchForm = () => {
           `/api/officers/search/last_name/${lastName}`
         );
         console.log(response);
-        setOfficerInfo(response[0][0]);
+        setOfficerInfo(response[0]);
       } else {
         const response = await fetchHandler(
           `/api/officers/search/badge_num/${badgeNumber}`
         );
         console.log(response);
-        setOfficerInfo(response[0][0]);
+        setOfficerInfo(response[0]);
       }
     } catch (err) {
       setError("Officer not found or error fetching data.");
@@ -93,6 +93,19 @@ const OfficerSearchForm = () => {
         )}
         <button type="submit">Search</button>
       </form>
+      <h2>Search Results</h2>
+      <section className="container">
+        {officerInfo?.map((foundCop) => {
+          return (
+            <SearchResultsBar
+              firstName={foundCop.first_name}
+              lastName={foundCop.last_name}
+              badgeNumber={foundCop.badge_num}
+            />
+          );
+        })}
+      </section>
+
       {officerInfo && (
         <div>
           <h3>Officer Information</h3>
