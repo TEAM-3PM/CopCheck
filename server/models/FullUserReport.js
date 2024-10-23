@@ -17,16 +17,11 @@ class FullUserReport {
       contents.id AS content_id,
       contents.content,
       contents.type,
-      contents.created_at AS content_created_at,
-      comments.id AS comment_id,
-      comments.text AS comment_text
+      contents.created_at AS content_created_at
     FROM 
       user_reports
     JOIN 
-      contents ON user_reports.id = contents.report_id
-    JOIN
-      comments ON user_reports.id = comments.report_id;
-      
+      contents ON user_reports.id = contents.report_id;
       `;
 
     const result = await knex.raw(query);

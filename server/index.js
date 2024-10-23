@@ -54,35 +54,38 @@ app.patch("/api/users/:id", checkAuthentication, userControllers.updateUser);
 
 app.get("/api/reports", fullUserReportControllers.listFullUserReports);
 app.get(
-	"/api/reports/officer/:officer_id",
-	fullUserReportControllers.listFullUserReportsForOfficer
+  "/api/reports/officer/:officer_id",
+  fullUserReportControllers.listFullUserReportsForOfficer
 );
 app.get(
-	"/api/reports/user/:user_id",
-	fullUserReportControllers.listFullUserReportsForUser
+  "/api/reports/user/:user_id",
+  fullUserReportControllers.listFullUserReportsForUser
 );
 app.post(
-	"/api/reports",
-	checkAuthentication,
-	fullUserReportControllers.createFullUserReport
+  "/api/reports",
+  checkAuthentication,
+  fullUserReportControllers.createFullUserReport
 );
 
 ///////////////////////////////
 // Officer Routes
 ///////////////////////////////
 
-app.get("/api/officers/:id/complaints", officerControllers.findByIdWithComplaints);
+app.get(
+  "/api/officers/:id/complaints",
+  officerControllers.findByIdWithComplaints
+);
 app.get("/api/officers", officerControllers.listOfficers);
 
 //search by last name
 app.get(
-	"/api/officers/search/last_name/:last_name",
-	officerControllers.resultsOfficerByLastName
+  "/api/officers/search/last_name/:last_name",
+  officerControllers.resultsOfficerByLastName
 );
 // search by badge_num
 app.get(
-	"/api/officers/search/badge_num/:badge_num",
-	officerControllers.resultsOfficerByBadgeNum
+  "/api/officers/search/badge_num/:badge_num",
+  officerControllers.resultsOfficerByBadgeNum
 );
 
 ///////////////////////////////
@@ -90,20 +93,18 @@ app.get(
 ///////////////////////////////
 
 app.get(
-	"/api/precincts/search/:query",
-	precinctControllers.resultsPrecinctByQuery
+  "/api/precincts/search/:query",
+  precinctControllers.resultsPrecinctByQuery
 );
-
 
 ///////////////////////////////
 // Public Complaint Routes
 ///////////////////////////////
 
-// app.get(
-// 	"/api/public_complaints/:tax_id",
-// 	publicComplaintControllers.getOfficerByTaxId
-// );
-
+app.get(
+  "/api/public_complaints/:tax_id",
+  publicComplaintControllers.getOfficerByTaxId
+);
 
 ///////////////////////////////
 // Fallback Route
@@ -112,8 +113,8 @@ app.get(
 // Requests meant for the API will be sent along to the router.
 // For all other requests, send back the index.html file in the dist folder.
 app.get("*", (req, res, next) => {
-	if (req.originalUrl.startsWith("/api")) return next();
-	res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+  if (req.originalUrl.startsWith("/api")) return next();
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
 
 ///////////////////////////////
@@ -122,5 +123,5 @@ app.get("*", (req, res, next) => {
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-	console.log(`Server running at http://localhost:${port}/`);
+  console.log(`Server running at http://localhost:${port}/`);
 });
