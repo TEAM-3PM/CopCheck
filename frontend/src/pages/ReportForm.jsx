@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { useNavigate, Navigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { fetchHandler } from "../utils/fetchingUtils";
 import { createReport } from "../adapters/report-adapter";
 import CurrentUserContext from "../contexts/current-user-context";
@@ -7,19 +7,14 @@ import UploadWidget from "../components/cloudinary/UploadWidgets.jsx";
 
 const ReportForm = () => {
     const navigate = useNavigate();
-    const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
-    // store a list of officers fetched from database in an array
+    const { currentUser } = useContext(CurrentUserContext);
     const [officers, setOfficers] = useState([]);
-    // set the state of this to the officers ID
     const [selectedOfficer, setSelectedOfficer] = useState("");
-    // track the state of the report details by the user
     const [reportDetails, setReportDetails] = useState("");
-    // state to check for a file (video or image)
     const [contents, setContents] = useState([]);
 
     useEffect(() => {
         const fetchOfficers = async () => {
-            // ADD API ENDPOINT FOR OFFICERS
             const [data, error] = await fetchHandler("/api/officers");
             if (data) setOfficers(data);
         };
@@ -27,7 +22,6 @@ const ReportForm = () => {
     }, []);
 
     const handleUpload = uploadedFile => {
-        // console.log(uploadedFile);
         setContents(previous => [
             ...previous,
             uploadedFile.resource_type === "image"
@@ -43,9 +37,8 @@ const ReportForm = () => {
     };
 
     const handleSubmit = async e => {
-        e.preventDefault();
-        // ADD API ENDPOINT
 
+        e.preventDefault();
         const [data, error] = await createReport({
             officer_id: selectedOfficer,
             contents: [
@@ -57,17 +50,18 @@ const ReportForm = () => {
             ],
         });
 
+
         if (data) {
             alert("Your report has been submitted successfully!");
         } else {
             alert("Failed to submit report");
         }
         setContents([]);
-        navigate(`/officers/${selectedOfficer}`)
+        navigate(`/officers/${selectedOfficer}`);
+        console.log(error)
     };
 
-    console.log(contents);
-    // console.log({ user_id: currentUser?.id, officer_id: selectedOfficer, user: currentUser, })
+
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -79,15 +73,9 @@ const ReportForm = () => {
                         value={selectedOfficer}
                         onChange={e => setSelectedOfficer(e.target.value)}
                         required>
-                        <option
-                            value=''
-                            disabled>
-                            Select an Officer
-                        </option>
+                        <option value='' disabled>Select an Officer</option>
                         {officers.map(officer => (
-                            <option
-                                key={officer?.id}
-                                value={officer?.id}>
+                            <option key={officer?.id} value={officer?.id}>
                                 {officer.last_name}, {officer.first_name}
                             </option>
                         ))}
@@ -99,15 +87,15 @@ const ReportForm = () => {
                     <textarea
                         value={reportDetails}
                         onChange={e => setReportDetails(e.target.value)}
-                        required></textarea>
+                        maxLength={4000}
+                        required
+                    />
+                    <div style={{ color: reportDetails.length === 4000 ? 'red' : reportDetails.length <= 3000 ? 'white' : "yellow" }}>{reportDetails.length} / 4000 characters remaining</div>
                 </label>
 
                 <label>
                     Upload an Image or Video:
-                    <UploadWidget
-                        onUpload={handleUpload}
-                        onClick={() => widgetRef.current.open()}
-                    />
+                    <UploadWidget onUpload={handleUpload} />
                 </label>
 
                 <button type='submit'>Submit report</button>
@@ -117,3 +105,4 @@ const ReportForm = () => {
 };
 
 export default ReportForm;
+
