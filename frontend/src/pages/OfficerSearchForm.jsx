@@ -42,6 +42,7 @@ const OfficerSearchForm = () => {
         setOfficerInfo(response[0]);
       }
     } catch (err) {
+      setSearchTerm(badgeNumber || lastName);
       setError("Officer not found or error fetching data.");
     }
   };
