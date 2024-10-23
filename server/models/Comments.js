@@ -10,12 +10,6 @@ class Comments {
   // static methods to hide the hashed password of users before sending user data
   // to the client. Since we want to keep the #passwordHash property private, we
   // provide the isValidPassword instance method as a way to indirectly access it.
-  constructor({ id, user_id, report_id, text }) {
-    this.id = id;
-    this.user_id = user_id;
-    this.report_id = report_id;
-    this.text = text;
-  }
 
   // This instance method takes in a plain-text password and returns true if it matches
   // the User instance's hashed password. Can be used by controllers.
@@ -40,6 +34,13 @@ class Comments {
     return rawUserData ? new Comments(rawUserData) : null;
   }
 
+  static async findByUserReport(user_id) {
+    const query = `SELECT * FROM comments WHERE user_id = ?`;
+    const result = await knex.raw(query, [user_id]);
+    const rawUserData = result.rows[0];
+    return rawUserData ? new Comments(rawUserData) : null;
+  }
+
   // Same as above but uses the username to find the user
 
   // Hashes the given password and then creates a new user
@@ -50,7 +51,7 @@ class Comments {
 
     const query = `INSERT INTO comments ( user_id, report_id, text )
         VALUES ( ?, ?, ?) RETURNING *`;
-    const result = await knex.raw(query, [id, user_id, report_id, text]);
+    const result = await knex.raw(query, [user_id, report_id, text]);
     const rawUpdatedPrecincts = result.rows[0];
     return new Comments(rawUpdatedPrecincts);
   }

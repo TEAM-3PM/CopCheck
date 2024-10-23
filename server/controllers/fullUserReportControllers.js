@@ -25,7 +25,7 @@ exports.createFullUserReport = async (req, res) => {
 exports.listFullUserReports = async (req, res) => {
 	try {
 		const userReports = await FullUserReport.list();
-
+		
 		res.status(200).send(userReports);
 	} catch (error) {
 		return res.status(500).send("Error retrieving report data");

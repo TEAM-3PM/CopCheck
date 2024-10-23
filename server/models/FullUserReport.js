@@ -9,7 +9,7 @@ class FullUserReport {
 
   static async list() {
     const query = `
-    SELECT 
+      SELECT 
       user_reports.id AS report_id,
       user_reports.user_id,
       user_reports.officer_id,
@@ -17,11 +17,17 @@ class FullUserReport {
       contents.id AS content_id,
       contents.content,
       contents.type,
-      contents.created_at AS content_created_at
+      contents.created_at AS content_created_at,
+      comments.id AS comment_id,
+      comments.text AS comment_text
     FROM 
       user_reports
     JOIN 
-      contents ON user_reports.id = contents.report_id;`;
+      contents ON user_reports.id = contents.report_id
+    JOIN
+      comments ON user_reports.id = comments.report_id;
+      
+      `;
 
     const result = await knex.raw(query);
     return result.rows;
@@ -48,7 +54,6 @@ class FullUserReport {
     const result = await knex.raw(query, [idQuery]);
     return result.rows;
   }
-
 
   static async findByUserId(idQuery) {
     const query = `
