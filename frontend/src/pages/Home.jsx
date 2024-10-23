@@ -9,7 +9,6 @@ export default function HomePage() {
         <img src={Slogan} alt="" id="HomePageSlogan" />
       </section>
 
-      <ListOfReports />
     </div>
   );
 }

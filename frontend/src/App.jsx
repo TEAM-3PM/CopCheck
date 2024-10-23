@@ -14,6 +14,8 @@ import OfficerSearchForm from './pages/OfficerSearchForm.jsx';
 import VideoPlayer from './components/cloudinary/VideoPlayer.jsx';
 import ReportsList from './pages/ListOfReports.jsx';
 import OfficerSpecs from './pages/OfficerSpecs.jsx';
+import CopCheckFeed from './pages/CopCheckFeed.jsx';
+
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
@@ -28,14 +30,14 @@ export default function App() {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/sign-up' element={<SignUpPage />} />
-        <Route path='/users' element={<UsersPage />} />
+        {/* <Route path='/users' element={<UsersPage />} /> */}
         <Route path='/users/:id' element={<UserPage />} />
         <Route path='/complaint' element={<ReportForm />} />
         <Route path='/officer-search' element={<OfficerSearchForm />} />
         <Route path='/reports' element={<ReportsList />} />
         <Route path='*' element={<NotFoundPage />} />
         <Route path='/officers/:officerId' element={<OfficerSpecs />} />
-
+        <Route path='/feed' element={<CopCheckFeed />} />
       </Routes>
     </main>
   </>;
