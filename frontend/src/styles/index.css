@@ -258,7 +258,6 @@ form {
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 100vh;
   font-family: "Baloo Paaji 2", cursive;
 }
