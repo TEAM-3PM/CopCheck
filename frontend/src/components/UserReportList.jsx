@@ -3,7 +3,7 @@ import { UserReportCard } from "./UserReportCard";
 
 export const UserReportList = ({ reports }) => {
 	return (
-		<div className='col-flex'>
+		<div className='col-flex fill-width'>
 			<h3>Recent Reports</h3>
 			{reports.length > 0 ? (
 				reports.map(report => (

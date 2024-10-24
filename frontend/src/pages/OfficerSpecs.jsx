@@ -59,7 +59,7 @@ const OfficerSpecs = () => {
 			<p>Badge Number: {officer?.badge_num}</p>
 			<div
 				className='flexbox fill-width'
-				style={{ alignItems: "start" }}>
+				style={{ justifyContent: "space-between", alignItems: "start" }}>
 				<PublicComplaintList officer={officer} />
 
 				<UserReportList reports={reports} />

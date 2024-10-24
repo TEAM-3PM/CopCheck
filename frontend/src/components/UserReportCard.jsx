@@ -3,7 +3,7 @@ import VideoPlayer from "../components/cloudinary/VideoPlayer";
 
 export const UserReportCard = ({ report }) => {
 	return (
-		<>
+		<div style={{ padding: "5px", border: "solid", borderRight: "none" }}>
 			{report.type === "text" && <p>{report.content}</p>}
 			{report.type === "image" && (
 				<img
@@ -18,6 +18,6 @@ export const UserReportCard = ({ report }) => {
 					publicID={report.content}
 				/>
 			)}
-		</>
+		</div>
 	);
 };
