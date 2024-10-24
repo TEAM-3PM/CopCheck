@@ -1,372 +1,374 @@
 /** @format */
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 .whole-form {
-  display: flex;
-  flex-direction: column;
-  border-style: none;
-  align-items: center;
-  width: 50%;
+	display: flex;
+	flex-direction: column;
+	border-style: none;
+	align-items: center;
+	width: 50%;
 }
 
 /* General utils */
 .flexbox {
-  display: flex;
-  justify-content: center;
-  align-content: center;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	gap: 1rem;
 }
 
 .col-flex {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	gap: 1rem;
 }
 
 .fill-width {
-  width: 100%;
+	width: 100%;
 }
 
 .fill-height {
-  height: 100%;
+	height: 100%;
 }
 
 .no-border {
-  border-style: none;
+	border-style: none;
 }
 
 /* Specific stuff */
 
 #search-bar > * {
-  margin: 0;
-  border-width: 3px;
-  padding: 3px 10px;
-  border-color: black;
+	margin: 0;
+	border-width: 3px;
+	padding: 3px 10px;
+	border-color: black;
 }
 
 #search-bar > button:enabled {
-  background-color: dodgerblue;
-  color: white;
+	background-color: dodgerblue;
+	color: white;
 }
 
 /* other stuff ig */
 body {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  margin: 0;
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	margin: 0;
 }
 
 input,
 label {
-  display: block;
+	display: block;
 }
 
 input {
-  margin-bottom: 1rem;
+	margin-bottom: 1rem;
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  background: #000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5rem 1rem;
+	background: #000;
 }
 
 #navBarLogo {
-  max-height: 100px;
-  width: auto;
+	max-height: 100px;
+	width: auto;
 }
 #slogan-section {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 html {
-  background-color: #000;
-  color: white;
+	background-color: #000;
+	color: white;
 }
 
 #logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: #fff;
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-decoration: none;
+	color: #fff;
 }
 
 nav ul {
-  display: flex;
-  gap: 1rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
+	display: flex;
+	gap: 1rem;
+	padding: 0;
+	margin: 0;
+	list-style: none;
 }
 
 nav a {
-  display: block;
-  color: #fff;
+	display: block;
+	color: #fff;
 }
 
 form {
-  padding: 1rem;
-  border: 1px solid #ccc;
-  width: 15rem;
-  margin: 1rem auto;
+	padding: 1rem;
+	border: 1px solid #ccc;
+	width: 15rem;
+	margin: 1rem auto;
 }
 
 /* automatically added by NavLink component */
 .active {
-  color: #eebc32;
-  font-weight: bold;
-  font-style: italic;
+	color: #eebc32;
+	font-weight: bold;
+	font-style: italic;
 }
 
 /* Starting from here is the login CSS*/
 
 .wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* width: 420px; */
-  /* background: slateblue; */
-  /* color: #FFF; */
-  border-radius: 10px;
-  padding: 30px 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* width: 420px; */
+	/* background: slateblue; */
+	/* color: #FFF; */
+	border-radius: 10px;
+	padding: 30px 40px;
 }
 
 .wrapper h1 {
-  font-size: 36px;
-  text-align: center;
+	font-size: 36px;
+	text-align: center;
 }
 
 #username {
-  width: 350px;
+	width: 350px;
 }
 
 #password {
-  width: 350px;
+	width: 350px;
 }
 
 #fullname {
-  width: 350px;
+	width: 350px;
 }
 
 #email {
-  width: 350px;
+	width: 350px;
 }
 
 #age {
-  width: 350px;
+	width: 350px;
 }
 
 #race {
-  width: 350px;
+	width: 350px;
 }
 
 #gender {
-  width: 350px;
+	width: 350px;
 }
 
 .wrapper input-box {
-  position: relative;
-  width: 100%;
-  height: 50px;
-  background: black;
+	position: relative;
+	width: 100%;
+	height: 50px;
+	background: black;
 
-  margin: 30px 0;
+	margin: 30px 0;
 }
 
 .input-box input {
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  border: none;
-  border: 2px solid rgb(68, 66, 66);
-  outline: none;
-  border-radius: 40px;
-  font-size: 16px;
-  color: white;
-  padding: 20px 45px 20px 20px;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	border: none;
+	border: 2px solid rgb(68, 66, 66);
+	outline: none;
+	border-radius: 40px;
+	font-size: 16px;
+	color: white;
+	padding: 20px 45px 20px 20px;
 }
 
 .input-box::placeholder {
-  color-scheme: black;
+	color-scheme: black;
 }
 
 .wrapper .remember-forgot {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14.5px;
-  margin: -15px 0 15px;
+	display: flex;
+	justify-content: space-between;
+	font-size: 14.5px;
+	margin: -15px 0 15px;
 }
 
 .remember-forgot label input {
-  accent-color: #fff;
-  margin-right: 4px;
+	accent-color: #fff;
+	margin-right: 4px;
 }
 
 .remember-forgot a {
-  color: #fff;
-  text-decoration: none;
+	color: #fff;
+	text-decoration: none;
 }
 
 #remember-me {
-  display: flex;
+	display: flex;
 }
 
 .remember-forgot a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 #login-button {
-  width: 250px;
+	width: 250px;
 }
 
 .wrapper button {
-  width: 30%;
-  height: 45px;
-  background: #fff;
-  border: none;
-  outline: none;
-  border-radius: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  font-size: 16px;
-  color: #333;
-  font-weight: 700;
+	width: 30%;
+	height: 45px;
+	background: #fff;
+	border: none;
+	outline: none;
+	border-radius: 40px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	cursor: pointer;
+	font-size: 16px;
+	color: #333;
+	font-weight: 700;
 }
 
 .wrapper .register-link {
-  font-size: 14.5px;
-  text-align: center;
-  margin-top: 20px;
-  margin: 20px 0 15px;
+	font-size: 14.5px;
+	text-align: center;
+	margin-top: 20px;
+	margin: 20px 0 15px;
 }
 
 .register-link p a {
-  color: blue;
-  text-decoration: none;
-  font-weight: 600;
+	color: blue;
+	text-decoration: none;
+	font-weight: 600;
 }
 
 .register-link p a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  font-family: "Baloo Paaji 2", cursive;
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+	font-family: "Baloo Paaji 2", cursive;
 }
 
 .card {
-  background-color: black;
-  height: fit-content;
-  width: 500px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.7);
-  color: white;
-  border: solid 3px #2a2f37;
+	background-color: black;
+	height: fit-content;
+	width: 500px;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow: rgba(0, 0, 0, 0.7);
+	color: white;
+	border: solid 3px #2a2f37;
 }
 .card:hover {
-  border: solid 3px white;
+	border: solid 3px white;
 }
 
 .card__name {
-  margin-top: 15px;
-  font-size: 1.5em;
+	margin-top: 15px;
+	font-size: 1.5em;
 }
 
 .draw-border {
-  box-shadow: inset 0 0 0 4px white;
-  color: white;
-  -webkit-transition: color 0.25s 0.0833333333s;
-  transition: color 0.25s 0.0833333333s;
-  position: relative;
+	box-shadow: inset 0 0 0 4px white;
+	color: white;
+	-webkit-transition: color 0.25s 0.0833333333s;
+	transition: color 0.25s 0.0833333333s;
+	position: relative;
 }
 
 .draw-border::before,
 .draw-border::after {
-  border: 0 solid transparent;
-  box-sizing: border-box;
-  content: "";
-  pointer-events: none;
-  position: absolute;
-  width: 0rem;
-  height: 0;
-  bottom: 0;
-  right: 0;
+	border: 0 solid transparent;
+	box-sizing: border-box;
+	content: "";
+	pointer-events: none;
+	position: absolute;
+	width: 0rem;
+	height: 0;
+	bottom: 0;
+	right: 0;
 }
 
 .draw-border::before {
-  border-bottom-width: 4px;
-  border-left-width: 4px;
+	border-bottom-width: 4px;
+	border-left-width: 4px;
 }
 
 .draw-border::after {
-  border-top-width: 4px;
-  border-right-width: 4px;
+	border-top-width: 4px;
+	border-right-width: 4px;
 }
 
 .draw-border:hover {
-  color: #ffe593;
+	color: #ffe593;
 }
 
 .draw-border:hover::before,
 .draw-border:hover::after {
-  border-color: #fdc41c;
-  -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
-  transition: border-color 0s, width 0.25s, height 0.25s;
-  width: 100%;
-  height: 100%;
+	border-color: #fdc41c;
+	-webkit-transition: border-color 0s, width 0.25s, height 0.25s;
+	transition: border-color 0s, width 0.25s, height 0.25s;
+	width: 100%;
+	height: 100%;
 }
 
 .draw-border:hover::before {
-  -webkit-transition-delay: 0s, 0s, 0.25s;
-  transition-delay: 0s, 0s, 0.25s;
+	-webkit-transition-delay: 0s, 0s, 0.25s;
+	transition-delay: 0s, 0s, 0.25s;
 }
 
 .draw-border:hover::after {
-  -webkit-transition-delay: 0s, 0.25s, 0s;
-  transition-delay: 0s, 0.25s, 0s;
+	-webkit-transition-delay: 0s, 0.25s, 0s;
+	transition-delay: 0s, 0.25s, 0s;
 }
 
 .btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  line-height: 1.5;
-  font: 700 1.2rem "Roboto Slab", sans-serif;
-  padding: 0.75em 2em;
-  letter-spacing: 0.05rem;
-  margin: 1em;
-  width: 13rem;
+	background: none;
+	border: none;
+	cursor: pointer;
+	line-height: 1.5;
+	font: 700 1.2rem "Roboto Slab", sans-serif;
+	padding: 0.75em 2em;
+	letter-spacing: 0.05rem;
+	margin: 1em;
+	width: 13rem;
 }
 
 .btn:focus {
-  outline: 2px dotted #55d7dc;
+	outline: 2px dotted #55d7dc;
 }
 
 .grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-  font-size: 1.2em;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 20px;
+	font-size: 1.2em;
 }
 
 .card__image {
-  height: 160px;
-  width: 160px;
-  border-radius: 50%;
-  border: 5px solid #272133;
-  margin-top: 20px;
-  box-shadow: 0 10px 50px #fdc41c;
+	height: 160px;
+	width: 160px;
+	border-radius: 50%;
+	border: 5px solid #272133;
+	margin-top: 20px;
+	box-shadow: 0 10px 50px #fdc41c;
 }

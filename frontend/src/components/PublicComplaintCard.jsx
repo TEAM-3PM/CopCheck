@@ -1,13 +1,14 @@
 /** @format */
 
 export const PublicComplaintCard = ({ complaint }) => {
+	// console.log(complaint);
 	return (
 		<div
 			className='col-flex'
 			style={{
 				color: "black",
 				backgroundColor: "white",
-				borderRadius: "10px",
+				borderRadius: "5px",
 			}}>
 			<p>
 				<strong>Rank at Incident:</strong> {complaint.officer_rank_at_incident}{" "}
