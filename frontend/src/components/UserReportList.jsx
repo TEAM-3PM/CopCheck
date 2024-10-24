@@ -5,6 +5,7 @@ export const UserReportList = ({ reports }) => {
 	return (
 		<div className='col-flex fill-width'>
 			<h3>Recent Reports</h3>
+			<hr />
 			{reports.length > 0 ? (
 				reports.map(report => (
 					<UserReportCard

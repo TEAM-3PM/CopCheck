@@ -52,13 +52,13 @@ const OfficerSpecs = () => {
 	}, [officerId]);
 
 	return (
-		<div>
+		<div className='col-flex'>
 			<h1>
 				Officer: {officer?.first_name} {officer?.last_name}
 			</h1>
 			<p>Badge Number: {officer?.badge_num}</p>
 			<div
-				className='flexbox fill-width'
+				className='row-flex fill-width'
 				style={{ justifyContent: "space-between", alignItems: "start" }}>
 				<PublicComplaintList officer={officer} />
 
