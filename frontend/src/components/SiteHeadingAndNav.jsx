@@ -16,7 +16,10 @@ export default function SiteHeadingAndNav() {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/officer-search"> Search Officer</NavLink>
+            <NavLink to="/officer-search">Search Officer</NavLink>
+          </li>
+          <li>
+            <NavLink to='/feed'>Feed</NavLink>
           </li>
 
           {currentUser ? (
@@ -24,11 +27,7 @@ export default function SiteHeadingAndNav() {
               <li>
                 <NavLink to="/complaint">File A Complaint</NavLink>
               </li>
-              <li>
-                <NavLink to="/users" end={true}>
-                  Users
-                </NavLink>
-              </li>
+
               <li>
                 <NavLink to={`/users/${currentUser.id}`}>
                   {currentUser.username}

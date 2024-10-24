@@ -58,7 +58,6 @@ const OfficerSpecs = () => {
                     <p>Badge Number: {officer.badge_number}</p>
 
                     <h3>Recent Reports on {officer.last_name}, {officer.first_name}</h3>
-
                     {reports.length > 0 ? (
                         reports.map((report) => (
                             <div key={report.content_id}>
@@ -76,8 +75,28 @@ const OfficerSpecs = () => {
                             </div>
                         ))
                     ) : (
-                        <p>No reports found for this officer.</p>
-                        // 
+                        <p>No user reports found for this officer.</p>
+                    )}
+
+                    {/* Public Complaints Section */}
+                    <h3>Public Complaints on {officer.last_name}, {officer.first_name}</h3>
+                    {officer.publicComplaints.length > 0 ? (
+                        officer.publicComplaints.map((complaint) => (
+                            <div key={complaint.id} className="complaint-details">
+                                <p><strong>Rank at Incident:</strong> {complaint.officer_rank_at_incident} ({complaint.officer_rank_abbreviation_at_incident})</p>
+                                <p><strong>Command at Incident:</strong> {complaint.officer_command_at_incident}</p>
+                                <p><strong>FADO Type:</strong> {complaint.fado_type}</p>
+                                <p><strong>Allegation:</strong> {complaint.allegation}</p>
+                                <p><strong>Victim's Age Range:</strong> {complaint.victim_allegedvictim_age_range_at_incident}</p>
+                                <p><strong>Victim's Gender:</strong> {complaint.victim_allegedvictim_gender}</p>
+                                <p><strong>Victim's Race:</strong> {complaint.victim_allegedvictim_race_legacy}</p>
+                                <p><strong>CCRB Disposition:</strong> {complaint.ccrb_allegation_disposition}</p>
+                                <p><strong>NYPD Disposition:</strong> {complaint.nypd_allegation_disposition}</p>
+                                <p><strong>Investigator's Recommended Disposition:</strong> {complaint.investigator_recommended_allegation_disposition}</p>
+                            </div>
+                        ))
+                    ) : (
+                        <p>No public complaints found for this officer.</p>
                     )}
                 </div>
             ) : (
@@ -88,3 +107,5 @@ const OfficerSpecs = () => {
 };
 
 export default OfficerSpecs;
+
+
