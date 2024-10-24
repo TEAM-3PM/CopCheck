@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import { fetchHandler } from "../utils/fetchingUtils";
-import VideoPlayer from "../components/cloudinary/VideoPlayer";
 import { useParams } from "react-router-dom";
 import { PublicComplaintList } from "../components/PublicComplaintList";
+import { UserReportList } from "../components/UserReportList";
 
 const OfficerSpecs = () => {
 	const { officerId } = useParams();
@@ -57,35 +57,13 @@ const OfficerSpecs = () => {
 				Officer: {officer?.first_name} {officer?.last_name}
 			</h1>
 			<p>Badge Number: {officer?.badge_num}</p>
+			<div
+				className='flexbox fill-width'
+				style={{ alignItems: "start" }}>
+				<PublicComplaintList officer={officer} />
 
-			<PublicComplaintList officer={officer} />
-
-			<h3>
-				Recent Reports on {officer?.last_name}, {officer?.first_name}
-			</h3>
-
-			{reports.length > 0 ? (
-				reports.map(report => (
-					<div key={report.content_id}>
-						{report.type === "text" && <p>{report.content}</p>}
-						{report.type === "image" && (
-							<img
-								src={report.content}
-								alt='Report content'
-							/>
-						)}
-						{report.type === "video" && (
-							<VideoPlayer
-								width={640}
-								height={720}
-								publicID={report.content}
-							/>
-						)}
-					</div>
-				))
-			) : (
-				<p>No user reports found for this officer.</p>
-			)}
+				<UserReportList reports={reports} />
+			</div>
 		</div>
 	);
 };
