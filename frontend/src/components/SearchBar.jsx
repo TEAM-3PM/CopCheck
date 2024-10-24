@@ -43,7 +43,7 @@ export const SearchBar = ({ optionStart }) => {
 	return (
 		<form
 			id='search-bar'
-			className='flexbox fill-width no-border'
+			className='row-flex fill-width no-border'
 			aria-label='Search Bar'
 			onSubmit={handleSubmit}
 			style={{ height: "65px" }}>
