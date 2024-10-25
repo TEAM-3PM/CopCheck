@@ -41,6 +41,13 @@ class Comments {
     return rawUserData ? new Comments(rawUserData) : null;
   }
 
+  static async findByReportId(report_id) {
+    const query = `SELECT * FROM comments WHERE report_id = ?`;
+    const result = await knex.raw(query, [report_id]);
+    const rawUserData = result.rows[0];
+    return rawUserData ? new Comments(rawUserData) : null;
+  }
+
   // Same as above but uses the username to find the user
 
   // Hashes the given password and then creates a new user
