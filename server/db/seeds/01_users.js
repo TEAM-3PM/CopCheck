@@ -8,6 +8,7 @@ const User = require("../../models/User");
 exports.seed = async (knex) => {
   // Before you have models you can always just do `await knex('table_name').del`
   await knex("contents").del();
+  await knex("comments").del();
   await knex("user_reports").del();
   await knex("users").del();
   await knex("public_complaints").del();
