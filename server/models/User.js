@@ -159,6 +159,38 @@ class User {
   static async deleteAll() {
     return knex("users").del();
   }
+
+  static async deleteUser(id) {
+    const query = `
+    DELETE FROM comments
+WHERE user_id = ?;
+ DELETE FROM contents
+WHERE user_id = ?;
+
+    DELETE FROM user_reports
+WHERE user_id = ?;
+
+    DELETE FROM users
+WHERE id = ?;
+   
+  `;
+
+    const result = await knex.raw(query, [id, id, id, id]);
+    if (result) return "user deleted";
+    else return null;
+  }
 }
+
+/*
+  await knex("contents").del();
+  await knex("comments").del();
+  await knex("user_reports").del();
+  await knex("users").del();
+  await knex("public_complaints").del();
+  await knex("officers").del();
+  await knex("precincts").del();
+
+
+*/
 
 module.exports = User;

@@ -80,6 +80,17 @@ class Comments {
   static async deleteAll() {
     return knex("comments").del();
   }
+
+  static async deleteComment(id) {
+    const query = `
+        DELETE FROM comments
+        WHERE id=?
+        RETURNING *
+      `;
+    const result = await knex.raw(query, [id]);
+    const rawDeletedComment = result.rows[0];
+    return rawDeletedComment ? "comment deleted" : null;
+  }
 }
 
 module.exports = Comments;
