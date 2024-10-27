@@ -13,7 +13,7 @@ export const SearchBar = ({ optionStart }) => {
 		const endpoints = {
 			name: `/api/officers/search/last_name/${query}`,
 			badge: `/api/officers/search/badge_num/${query}`,
-			precinct: `/api/officers/search/precinct/${query}`,
+			precinct: `/api/precincts/search/${query}`,
 		};
 
 		const apiEndpoint = endpoints[searchOption];
