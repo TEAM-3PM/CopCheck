@@ -1,4 +1,4 @@
-/** @format */
+
 
 export const PublicComplaintCard = ({ complaint }) => {
 	// console.log(complaint);

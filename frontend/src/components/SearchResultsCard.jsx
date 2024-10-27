@@ -3,7 +3,7 @@
 import UserIcon from "../Cop Check Assets/user_8742495.png";
 import { Link } from "react-router-dom";
 
-export const SearchResultsBar = ({ officer }) => {
+export const SearchResultsCard = ({ officer }) => {
 	return (
 		<>
 			<div className='card'>

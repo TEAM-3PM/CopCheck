@@ -12,6 +12,7 @@ const ReportForm = () => {
     const [selectedOfficer, setSelectedOfficer] = useState("");
     const [reportDetails, setReportDetails] = useState("");
     const [contents, setContents] = useState([]);
+    const [uploadSuccess, setUploadSuccess] = useState(false);
 
     useEffect(() => {
         const fetchOfficers = async () => {
@@ -34,10 +35,11 @@ const ReportForm = () => {
                     content: uploadedFile.public_id,
                 },
         ]);
+        setUploadSuccess(true);
+        setTimeout(() => setUploadSuccess(false), 3000);
     };
 
     const handleSubmit = async e => {
-
         e.preventDefault();
         const [data, error] = await createReport({
             officer_id: selectedOfficer,
@@ -50,7 +52,6 @@ const ReportForm = () => {
             ],
         });
 
-
         if (data) {
             alert("Your report has been submitted successfully!");
         } else {
@@ -58,9 +59,8 @@ const ReportForm = () => {
         }
         setContents([]);
         navigate(`/officers/${selectedOfficer}`);
-        console.log(error)
+        console.log(error);
     };
-
 
     return (
         <>
@@ -98,6 +98,8 @@ const ReportForm = () => {
                     <UploadWidget onUpload={handleUpload} />
                 </label>
 
+                {uploadSuccess && <p style={{ color: 'green' }}>Upload successful!</p>}
+
                 <button type='submit'>Submit report</button>
             </form>
         </>
@@ -105,4 +107,3 @@ const ReportForm = () => {
 };
 
 export default ReportForm;
-

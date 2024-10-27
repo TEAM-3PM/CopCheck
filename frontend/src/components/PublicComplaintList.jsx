@@ -1,4 +1,4 @@
-/** @format */
+
 import { PublicComplaintCard } from "../components/PublicComplaintCard";
 
 export const PublicComplaintList = ({ officer }) => {

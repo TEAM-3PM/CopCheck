@@ -49,14 +49,14 @@
 
 /* Specific stuff */
 
-#search-bar > * {
+#search-bar>* {
 	margin: 0;
 	border-width: 3px;
 	padding: 3px 10px;
 	border-color: black;
 }
 
-#search-bar > button:enabled {
+#search-bar>button:enabled {
 	background-color: dodgerblue;
 	color: white;
 }
@@ -88,6 +88,7 @@ header {
 	max-height: 100px;
 	width: auto;
 }
+
 #slogan-section {
 	display: flex;
 	justify-content: center;
@@ -283,6 +284,7 @@ form {
 	color: white;
 	border: solid 3px #2a2f37;
 }
+
 .card:hover {
 	border: solid 3px white;
 }
@@ -376,4 +378,47 @@ form {
 	border: 5px solid #272133;
 	margin-top: 20px;
 	box-shadow: 0 10px 50px #fdc41c;
+}
+
+
+/* Animation for sliding in */
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		transform: translateX(-100%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* Styling for text slide-in effect */
+.slide-in-text h1,
+.slide-in-text h4 {
+	animation: slideIn 3s ease-out;
+	opacity: 0;
+	animation-fill-mode: forwards;
+}
+
+/* how long the text takes to slide in*/
+.slide-in-text h1 {
+	animation-delay: 0s;
+}
+
+/* check the authority slide in delay */
+.slide-in-text h4 {
+	animation-delay: 2s;
+}
+
+/* Styling for the highlighted word "Power" */
+.highlight-power {
+	color: #eebc32;
+}
+
+/* Styling for the smaller "CHECK THE AUTHORITY!" text */
+.authority-check {
+	font-size: 1.2em;
+	color: white;
 }
