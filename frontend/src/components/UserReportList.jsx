@@ -7,12 +7,15 @@ export const UserReportList = ({ reports }) => {
 			<h3>Recent Reports</h3>
 			<hr />
 			{reports.length > 0 ? (
-				reports.map(report => (
-					<UserReportCard
-						key={report.content_id}
-						report={report}
-					/>
-				))
+				reports.map(
+					report =>
+						report.contents.length > 0 && (
+							<UserReportCard
+								key={report.id}
+								report={report}
+							/>
+						)
+				)
 			) : (
 				<p>No user reports found for this officer.</p>
 			)}

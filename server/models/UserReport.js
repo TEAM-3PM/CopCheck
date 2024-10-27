@@ -42,9 +42,7 @@ class UserReport {
 	static async findByOfficerId(officer_id) {
 		const query = `SELECT * FROM user_reports WHERE officer_id = ?`;
 		const result = await knex.raw(query, [officer_id]);
-		return result.rows[0] // if there is at least 1 user_report for the given officer
-			? result.rows.map(rawUserData => new UserReport(rawUserData)) // return all reports for that officer
-			: null; // otherwise return null, indicating no reports existed for that officer
+		return result.rows;
 	}
 	static async findByUserId(user_id) {
 		const query = `SELECT * FROM user_reports WHERE user_id = ?`;
