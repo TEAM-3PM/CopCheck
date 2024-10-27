@@ -2,22 +2,34 @@
 import VideoPlayer from "../components/cloudinary/VideoPlayer";
 
 export const UserReportCard = ({ report }) => {
+	// doing this to avoid having to do report.contents a bajillion times
+	const reportContents = report.contents;
+	// doing this to guarantee that the text content is first
+	const textContent = reportContents.find(content => content.type === "text");
 	return (
 		<div style={{ padding: "5px", border: "solid", borderRight: "none" }}>
-			{report.type === "text" && <p>{report.content}</p>}
-			{report.type === "image" && (
-				<img
-					src={report.content}
-					alt='Report content'
-				/>
-			)}
-			{report.type === "video" && (
-				<VideoPlayer
-					width={640}
-					height={720}
-					publicID={report.content}
-				/>
-			)}
+			<p>{textContent?.content}</p>
+
+			{reportContents.map(content => {
+				// this map will skip over the text content
+				if (content.type === "image")
+					return (
+						<img
+							key={content.id}
+							src={content.content}
+							alt='Report content'
+						/>
+					);
+				if (content.type === "video")
+					return (
+						<VideoPlayer
+							key={content.id}
+							publicID={content.content}
+							width={640}
+							height={720}
+						/>
+					);
+			})}
 		</div>
 	);
 };
