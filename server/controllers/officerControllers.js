@@ -1,7 +1,10 @@
 /** @format */
 
 const Officer = require("../models/Officer");
-const PublicComplaint = require('../models/PublicComplaint')
+const PublicComplaint = require("../models/PublicComplaint");
+const UserReport = require("../models/UserReport");
+const Content = require("../models/Content");
+const Comments = require("../models/Comments");
 
 exports.findById = async (req, res) => {
 	const { id } = this.requestData(req);
@@ -17,7 +20,6 @@ exports.findById = async (req, res) => {
 	}
 };
 
-
 exports.findByIdWithComplaints = async (req, res) => {
 	const { id } = this.requestData(req);
 
@@ -27,6 +29,33 @@ exports.findByIdWithComplaints = async (req, res) => {
 
 		officer.publicComplaints = await PublicComplaint.findOfficerByTaxId(
 			officer.tax_id
+		);
+
+		res.status(200).send(officer);
+	} catch (error) {
+		console.log(error);
+		res.status(500).send("Error retrieving officer");
+	}
+};
+
+exports.findByIdWithComplaintsAndReports = async (req, res) => {
+	const { id } = this.requestData(req);
+
+	try {
+		const officer = await Officer.find(id);
+		if (!officer) return res.sendStatus(404);
+
+		officer.publicComplaints = await PublicComplaint.findOfficerByTaxId(
+			officer.tax_id
+		);
+
+		officer.reports = await UserReport.findByOfficerId(officer.id);
+
+		await Promise.all(
+			officer.reports.map(async report => {
+				(report.contents = await Content.findReportId(report.id)),
+					(report.comments = await Comments.findByReportId(report.id));
+			})
 		);
 
 		res.status(200).send(officer);
