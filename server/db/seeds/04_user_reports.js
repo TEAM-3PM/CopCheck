@@ -17,6 +17,6 @@ exports.seed = async function (knex) {
   // create(id, user_id, officer_id);
   await UserReport.create(1, 1);
   await UserReport.create(1, 2);
-  await UserReport.create(1, 2);
-  await UserReport.create(1, 4);
+  await UserReport.create(2, 2);
+  await UserReport.create(3, 4);
 };
