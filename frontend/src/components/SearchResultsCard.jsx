@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const SearchResultsCard = ({ officer, precinct, searchOption }) => {
 	return (
 		<>
-			<div className='card'>
+			<div className='card col-flex'>
 				<img
 					src={UserIcon}
 					className='card__image'
@@ -18,11 +18,9 @@ export const SearchResultsCard = ({ officer, precinct, searchOption }) => {
 						<p className='card__name'>
 							{officer.first_name} {officer.last_name}
 						</p>
-						<div className='grid-container'>
-							<h3 className='grid-child-posts'>
-								Badge Number: {officer.badge_num}
-							</h3>
-						</div>
+
+						<h3>Badge Number: {officer.badge_num}</h3>
+
 						<Link to={`/officers/${officer.id}`}>
 							<button className='btn draw-border'>View Profile</button>
 						</Link>

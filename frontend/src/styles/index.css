@@ -30,11 +30,6 @@
 	gap: 1rem;
 }
 
-.grid-1x2 {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-}
-
 .fill-width {
 	width: 100%;
 }
@@ -71,23 +66,23 @@
 }
 
 #search-bar1 > * {
-  margin: 0;
-  border-width: 3px;
-  padding: 3px 10px;
-  border-color: black;
+	margin: 0;
+	border-width: 3px;
+	padding: 3px 10px;
+	border-color: black;
 }
 
 #search-bar1 > button:enabled {
-  background-color: dodgerblue;
-  color: white;
+	background-color: dodgerblue;
+	color: white;
 }
 #text-box1 {
-  width: 40vw;
-  height: 5vh;
+	width: 40vw;
+	height: 5vh;
 }
 #dropdown1,
 #search-button1 {
-  height: 5vh;
+	height: 5vh;
 }
 
 /* other stuff ig */
@@ -308,8 +303,9 @@ form {
 
 .card {
 	background-color: black;
-	height: fit-content;
-	width: 500px;
+	padding: 15px;
+	min-width: 400px;
+	height: 460px;
 	border-radius: 5px;
 	display: flex;
 	flex-direction: column;
@@ -327,6 +323,7 @@ form {
 .card__name {
 	margin-top: 15px;
 	font-size: 1.5em;
+	text-decoration: underline;
 }
 
 .draw-border {
@@ -391,7 +388,7 @@ form {
 	font: 700 1.2rem "Roboto Slab", sans-serif;
 	padding: 0.75em 2em;
 	letter-spacing: 0.05rem;
-	margin: 1em;
+	/* margin-bottom: 1em; */
 	width: 13rem;
 }
 
@@ -466,30 +463,30 @@ form {
 }
 
 .DataComponent {
-  display: flex;
-  gap: 20px;
-  font-size: 1.5vw;
+	display: flex;
+	gap: 20px;
+	font-size: 1.5vw;
 }
 
 .section {
-  flex: 1;
-  padding: 10px;
-  background-color: #0e0e0e;
-  border-radius: 10px;
+	flex: 1;
+	padding: 10px;
+	background-color: #0e0e0e;
+	border-radius: 10px;
 }
 .section:hover {
-  background-color: #191919;
+	background-color: #191919;
 }
 
 .data-num {
-  font-size: 1.7vw;
-  font-weight: bold;
-  background-color: #fdc41c;
-  border-radius: 9px;
-  color: black;
-  padding: 0 3px;
+	font-size: 1.7vw;
+	font-weight: bold;
+	background-color: #fdc41c;
+	border-radius: 9px;
+	color: black;
+	padding: 0 3px;
 }
 
 a {
-  color: #fdc41c;
+	color: #fdc41c;
 }
