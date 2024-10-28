@@ -20,7 +20,7 @@ export default function SiteHeadingAndNav() {
             {/* <NavLink to="/officer-search">Search Officer</NavLink> */}
           </li>
           <li>
-            <NavLink to='/feed'>Feed</NavLink>
+            <NavLink to="/feed">Feed</NavLink>
           </li>
 
           {currentUser ? (
@@ -36,7 +36,6 @@ export default function SiteHeadingAndNav() {
                   {currentUser.username}
                 </NavLink>
               </li>
-
             </>
           ) : (
             <>

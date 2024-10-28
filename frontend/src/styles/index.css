@@ -61,6 +61,26 @@
   color: white;
 }
 
+#search-bar1 > * {
+  margin: 0;
+  border-width: 3px;
+  padding: 3px 10px;
+  border-color: black;
+}
+
+#search-bar1 > button:enabled {
+  background-color: dodgerblue;
+  color: white;
+}
+#text-box1 {
+  width: 40vw;
+  height: 5vh;
+}
+#dropdown1,
+#search-button1 {
+  height: 5vh;
+}
+
 /* other stuff ig */
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
