@@ -24,9 +24,7 @@ export default function SiteHeadingAndNav() {
 					<li>
 						<NavLink to='/'>Home</NavLink>
 					</li>
-					<li>
-						<SearchBar />
-					</li>
+
 					<li>
 						<NavLink to='/feed'>Feed</NavLink>
 					</li>
@@ -52,6 +50,9 @@ export default function SiteHeadingAndNav() {
 							</li>
 						</>
 					)}
+					<li>
+						<SearchBar />
+					</li>
 				</ul>
 			</nav>
 		</header>
