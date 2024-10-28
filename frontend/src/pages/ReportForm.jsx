@@ -99,7 +99,16 @@ const ReportForm = () => {
 						value={reportDetails}
 						onChange={e => setReportDetails(e.target.value)}
 						maxLength={4000}
+						spellCheck={true}
+						placeholder='Share your experience...'
 						required
+						style={{
+							minHeight: "250px",
+							maxHeight: "350px",
+							minWidth: "500px",
+							maxWidth: "750px",
+							padding: "5px",
+						}}
 					/>
 					<div
 						style={{
