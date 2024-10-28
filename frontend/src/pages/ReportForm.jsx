@@ -1,7 +1,7 @@
 /** @format */
 
 import { useContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { fetchHandler } from "../utils/fetchingUtils";
 import { createReport } from "../adapters/report-adapter";
 import CurrentUserContext from "../contexts/current-user-context";
@@ -9,9 +9,12 @@ import UploadWidget from "../components/cloudinary/UploadWidgets.jsx";
 
 const ReportForm = () => {
 	const navigate = useNavigate();
+	const { state } = useLocation();
 	const { currentUser } = useContext(CurrentUserContext);
 	const [officers, setOfficers] = useState([]);
-	const [selectedOfficer, setSelectedOfficer] = useState("");
+	const [selectedOfficer, setSelectedOfficer] = useState(
+		state?.startOfficer ?? ""
+	);
 	const [reportDetails, setReportDetails] = useState("");
 	const [contents, setContents] = useState([]);
 	const [uploadSuccess, setUploadSuccess] = useState(false);

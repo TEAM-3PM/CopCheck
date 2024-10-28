@@ -23,7 +23,9 @@ export const SearchResultsCard = ({ officer }) => {
 				<Link to={`/officers/${officer.id}`}>
 					<button className='btn draw-border'>View Profile</button>
 				</Link>
-				<Link to={`/complaint`}>
+				<Link
+					to={`/complaint`}
+					state={{ startOfficer: officer.id }}>
 					<button className='btn draw-border'>File A Report</button>
 				</Link>
 			</div>
