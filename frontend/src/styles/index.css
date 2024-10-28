@@ -77,11 +77,16 @@ input {
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  background: #000;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5rem 1rem;
+	background: #000000;
+}
+
+main {
+	padding: 10px 0px 10px 10px;
 }
 
 #navBarLogo {
@@ -107,11 +112,12 @@ html {
 }
 
 nav ul {
-  display: flex;
-  gap: 1rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 0;
+	margin: 0;
+	list-style: none;
 }
 
 nav a {

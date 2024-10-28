@@ -1,3 +1,5 @@
+/** @format */
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchHandler } from "../utils/fetchingUtils";
@@ -7,7 +9,7 @@ export const SearchBar = ({ optionStart }) => {
 	const [searchOption, setSearchOption] = useState(optionStart ?? "name");
 	const navigate = useNavigate();
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = async e => {
 		e.preventDefault();
 
 		const endpoints = {
@@ -34,7 +36,7 @@ export const SearchBar = ({ optionStart }) => {
 		}
 	};
 
-	const handleChange = (e) => {
+	const handleChange = e => {
 		const { name, value } = e.target;
 		if (name === "query") setQuery(value);
 		if (name === "searchOptions") setSearchOption(value);
@@ -42,34 +44,32 @@ export const SearchBar = ({ optionStart }) => {
 
 	return (
 		<form
-			id="search-bar"
-			className="row-flex fill-width no-border"
-			aria-label="Search Bar"
+			id='search-bar'
+			className='row-flex fill-width no-border'
+			aria-label='Search Bar'
 			onSubmit={handleSubmit}
-			style={{ height: "65px" }}
-		>
+			style={{ height: "65px", gap: "0rem" }}>
 			<input
-				type="text"
-				name="query"
+				type='text'
+				name='query'
 				value={query}
 				onChange={handleChange}
-				className="fill-height"
+				className='fill-height'
 				style={{ borderRadius: "20px 0px 0px 20px", borderRightWidth: "0px" }}
 			/>
 			<select
-				name="searchOptions"
+				name='searchOptions'
 				value={searchOption}
 				onChange={handleChange}
-				className="fill-height"
-				style={{ borderRightWidth: "1px", borderLeftWidth: "1px" }}
-			>
-				<option value="name">Last Name</option>
-				<option value="badge">Badge No.</option>
-				<option value="precinct">Precinct</option>
+				className='fill-height'
+				style={{ borderRightWidth: "1px", borderLeftWidth: "1px" }}>
+				<option value='name'>Last Name</option>
+				<option value='badge'>Badge No.</option>
+				<option value='precinct'>Precinct</option>
 			</select>
 			<button
-				type="submit"
-				className="fill-height"
+				type='submit'
+				className='fill-height'
 				disabled={
 					searchOption === "badge"
 						? /^([^0-9]*)$/.test(query) || query.length < 4
@@ -78,8 +78,7 @@ export const SearchBar = ({ optionStart }) => {
 				style={{
 					borderRadius: "0px 20px 20px 0px",
 					borderLeftWidth: "0px",
-				}}
-			>
+				}}>
 				Search
 			</button>
 		</form>
