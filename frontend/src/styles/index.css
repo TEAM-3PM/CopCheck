@@ -70,6 +70,26 @@
 	color: white;
 }
 
+#search-bar1 > * {
+  margin: 0;
+  border-width: 3px;
+  padding: 3px 10px;
+  border-color: black;
+}
+
+#search-bar1 > button:enabled {
+  background-color: dodgerblue;
+  color: white;
+}
+#text-box1 {
+  width: 40vw;
+  height: 5vh;
+}
+#dropdown1,
+#search-button1 {
+  height: 5vh;
+}
+
 /* other stuff ig */
 body {
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -443,4 +463,33 @@ form {
 	color: white;
 	font-family: "Sanchez", serif;
 	font-weight: 100;
+}
+
+.DataComponent {
+  display: flex;
+  gap: 20px;
+  font-size: 1.5vw;
+}
+
+.section {
+  flex: 1;
+  padding: 10px;
+  background-color: #0e0e0e;
+  border-radius: 10px;
+}
+.section:hover {
+  background-color: #191919;
+}
+
+.data-num {
+  font-size: 1.7vw;
+  font-weight: bold;
+  background-color: #fdc41c;
+  border-radius: 9px;
+  color: black;
+  padding: 0 3px;
+}
+
+a {
+  color: #fdc41c;
 }
