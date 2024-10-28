@@ -49,14 +49,23 @@
 
 /* Specific stuff */
 
-#search-bar>* {
+#search-bar > * {
 	margin: 0;
 	border-width: 3px;
 	padding: 3px 10px;
 	border-color: black;
 }
 
-#search-bar>button:enabled {
+#search-bar > button:enabled {
+	background-color: dodgerblue;
+	color: white;
+}
+
+#report-form > button {
+	padding: 5px;
+	border-radius: 5px;
+}
+#report-form > button:enabled {
 	background-color: dodgerblue;
 	color: white;
 }
@@ -379,7 +388,6 @@ form {
 	margin-top: 20px;
 	box-shadow: 0 10px 50px #fdc41c;
 }
-
 
 /* Animation for sliding in */
 @keyframes slideIn {

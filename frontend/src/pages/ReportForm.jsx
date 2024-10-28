@@ -28,6 +28,7 @@ const ReportForm = () => {
 	}, []);
 
 	const handleUpload = uploadedFile => {
+		// console.log(uploadedFile);
 		setContents(previous => [
 			...previous,
 			uploadedFile.resource_type === "image"
@@ -69,11 +70,15 @@ const ReportForm = () => {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit}>
+			<form
+				id='report-form'
+				onSubmit={handleSubmit}
+				className='col-flex'
+				style={{ width: "fit-content" }}>
 				<h2>Create a report</h2>
-
+				<hr />
 				<label>
-					Select Officer:
+					Select Officer:{" "}
 					<select
 						value={selectedOfficer}
 						onChange={e => setSelectedOfficer(e.target.value)}
@@ -93,44 +98,45 @@ const ReportForm = () => {
 					</select>
 				</label>
 
-				<label>
-					Report Details:
-					<textarea
-						value={reportDetails}
-						onChange={e => setReportDetails(e.target.value)}
-						maxLength={4000}
-						spellCheck={true}
-						placeholder='Share your experience...'
-						required
-						style={{
-							minHeight: "250px",
-							maxHeight: "350px",
-							minWidth: "500px",
-							maxWidth: "750px",
-							padding: "5px",
-						}}
-					/>
-					<div
-						style={{
-							color:
-								reportDetails.length === 4000
-									? "red"
-									: reportDetails.length <= 3000
-									? "white"
-									: "yellow",
-						}}>
-						{reportDetails.length} / 4000 characters remaining
-					</div>
-				</label>
+				<label>Report Details:</label>
+				<textarea
+					value={reportDetails}
+					onChange={e => setReportDetails(e.target.value)}
+					maxLength={4000}
+					spellCheck={true}
+					placeholder='Share your experience...'
+					required
+					style={{
+						minHeight: "250px",
+						maxHeight: "350px",
+						minWidth: "500px",
+						maxWidth: "750px",
+						padding: "5px",
+					}}
+				/>
+				<div
+					style={{
+						color:
+							reportDetails.length === 4000
+								? "red"
+								: reportDetails.length <= 3000
+								? "white"
+								: "yellow",
+					}}>
+					{reportDetails.length} / 4000 characters remaining
+				</div>
 
-				<label>
-					Upload an Image or Video:
-					<UploadWidget onUpload={handleUpload} />
-				</label>
+				<hr />
+				{/* <label>Upload an Image or Video:</label> */}
+				<UploadWidget onUpload={handleUpload} />
 
 				{uploadSuccess && <p style={{ color: "green" }}>Upload successful!</p>}
-
-				<button type='submit'>Submit report</button>
+				<hr />
+				<button
+					type='submit'
+					disabled={reportDetails.length < 30}>
+					Submit report
+				</button>
 			</form>
 		</>
 	);
