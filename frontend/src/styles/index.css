@@ -49,14 +49,14 @@
 
 /* Specific stuff */
 
-#search-bar>* {
+#search-bar > * {
 	margin: 0;
 	border-width: 3px;
 	padding: 3px 10px;
 	border-color: black;
 }
 
-#search-bar>button:enabled {
+#search-bar > button:enabled {
 	background-color: dodgerblue;
 	color: white;
 }
@@ -81,7 +81,11 @@ header {
 	justify-content: space-between;
 	align-items: center;
 	padding: 0.5rem 1rem;
-	background: #000;
+	background: #000000;
+}
+
+main {
+	padding: 10px 0px 10px 10px;
 }
 
 #navBarLogo {
@@ -108,6 +112,7 @@ html {
 
 nav ul {
 	display: flex;
+	align-items: center;
 	gap: 1rem;
 	padding: 0;
 	margin: 0;
@@ -379,7 +384,6 @@ form {
 	margin-top: 20px;
 	box-shadow: 0 10px 50px #fdc41c;
 }
-
 
 /* Animation for sliding in */
 @keyframes slideIn {
