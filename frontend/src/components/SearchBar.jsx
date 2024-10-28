@@ -15,7 +15,7 @@ export const SearchBar = ({ optionStart }) => {
 		const endpoints = {
 			name: `/api/officers/search/last_name/${query}`,
 			badge: `/api/officers/search/badge_num/${query}`,
-			precinct: `/api/officers/search/precinct/${query}`,
+			precinct: `/api/precincts/search/${query}`,
 		};
 
 		const apiEndpoint = endpoints[searchOption];
@@ -24,6 +24,7 @@ export const SearchBar = ({ optionStart }) => {
 			try {
 				const [data, error] = await fetchHandler(apiEndpoint);
 				if (data) {
+					console.log(data)
 					navigate("/officer-search", {
 						state: { searchResults: data, query, searchOption },
 					});

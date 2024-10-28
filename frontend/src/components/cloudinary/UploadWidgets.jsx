@@ -6,12 +6,12 @@ const UploadWidget = ({ onUpload }) => {
     useEffect(() => {
         widgetRef.current = window.cloudinary.createUploadWidget({
             cloudName: 'dr0fnb0zr',
-            uploadPreset: 'n2jgrfzo'
+            uploadPreset: 'nwea2gcq'
         }, (error, result) => {
             if (!error && result && result.event === "success") {
-                onUpload(result.info); // Pass the uploaded file info back to the parent
+                onUpload(result.info);
             }
-            // console.log(result);
+            console.log(result);
         });
     }, [onUpload]);
     // [onUpload]
