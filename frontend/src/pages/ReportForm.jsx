@@ -6,6 +6,7 @@ import { fetchHandler } from "../utils/fetchingUtils";
 import { createReport } from "../adapters/report-adapter";
 import CurrentUserContext from "../contexts/current-user-context";
 import UploadWidget from "../components/cloudinary/UploadWidgets.jsx";
+import { ThumbnailList } from "../components/ThumbnailList.jsx";
 
 const ReportForm = () => {
 	const navigate = useNavigate();
@@ -18,6 +19,7 @@ const ReportForm = () => {
 	const [reportDetails, setReportDetails] = useState("");
 	const [contents, setContents] = useState([]);
 	const [uploadSuccess, setUploadSuccess] = useState(false);
+	const [uploadThumbnails, setUploadThumbnails] = useState([]);
 
 	useEffect(() => {
 		const fetchOfficers = async () => {
@@ -28,7 +30,14 @@ const ReportForm = () => {
 	}, []);
 
 	const handleUpload = uploadedFile => {
-		// console.log(uploadedFile);
+		setUploadThumbnails(prev => [
+			...prev,
+			{
+				src: uploadedFile.thumbnail_url,
+				fileName: uploadedFile.original_filename,
+				format: `.${uploadedFile.format}`,
+			},
+		]);
 		setContents(previous => [
 			...previous,
 			uploadedFile.resource_type === "image"
@@ -129,8 +138,9 @@ const ReportForm = () => {
 				<hr />
 				{/* <label>Upload an Image or Video:</label> */}
 				<UploadWidget onUpload={handleUpload} />
-
 				{uploadSuccess && <p style={{ color: "green" }}>Upload successful!</p>}
+				<ThumbnailList thumbnails={uploadThumbnails} />
+
 				<hr />
 				<button
 					type='submit'
