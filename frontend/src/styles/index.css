@@ -90,7 +90,11 @@ header {
 	justify-content: space-between;
 	align-items: center;
 	padding: 0.5rem 1rem;
-	background: #000;
+	background: #000000;
+}
+
+main {
+	padding: 10px 0px 10px 10px;
 }
 
 #navBarLogo {
@@ -117,6 +121,7 @@ html {
 
 nav ul {
 	display: flex;
+	align-items: center;
 	gap: 1rem;
 	padding: 0;
 	margin: 0;
@@ -278,7 +283,7 @@ form {
 	display: flex;
 	justify-content: center;
 	height: 100vh;
-	font-family: "Baloo Paaji 2", cursive;
+	font-family: "Sanchez", sans-serif;
 }
 
 .card {
@@ -294,7 +299,8 @@ form {
 	border: solid 3px #2a2f37;
 }
 
-.card:hover {
+.card:hover,
+.card__image {
 	border: solid 3px white;
 }
 
@@ -386,7 +392,6 @@ form {
 	border-radius: 50%;
 	border: 5px solid #272133;
 	margin-top: 20px;
-	box-shadow: 0 10px 50px #fdc41c;
 }
 
 /* Animation for sliding in */
@@ -408,25 +413,34 @@ form {
 	animation: slideIn 3s ease-out;
 	opacity: 0;
 	animation-fill-mode: forwards;
+	white-space: nowrap;
 }
 
 /* how long the text takes to slide in*/
 .slide-in-text h1 {
 	animation-delay: 0s;
+	font-family: "League Spartan", sans-serif;
+	font-size: 10vw;
+	font-optical-sizing: auto;
+	font-weight: 1500;
+	font-style: normal;
 }
 
 /* check the authority slide in delay */
 .slide-in-text h4 {
 	animation-delay: 2s;
+	font-family: "Sanchez", serif;
 }
 
 /* Styling for the highlighted word "Power" */
 .highlight-power {
-	color: #eebc32;
+	color: #fdc41c;
 }
 
 /* Styling for the smaller "CHECK THE AUTHORITY!" text */
 .authority-check {
-	font-size: 1.2em;
+	font-size: 5vw;
 	color: white;
+	font-family: "Sanchez", serif;
+	font-weight: 100;
 }
