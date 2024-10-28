@@ -22,6 +22,7 @@ export const SearchBar = ({ optionStart }) => {
 			try {
 				const [data, error] = await fetchHandler(apiEndpoint);
 				if (data) {
+					console.log(data)
 					navigate("/officer-search", {
 						state: { searchResults: data, query, searchOption },
 					});
