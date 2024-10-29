@@ -1,68 +1,68 @@
 /** @format */
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .whole-form {
-	display: flex;
-	flex-direction: column;
-	border-style: none;
-	align-items: center;
-	width: 50%;
+  display: flex;
+  flex-direction: column;
+  border-style: none;
+  align-items: center;
+  width: 50%;
 }
 
 /* General utils */
 .row-flex {
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 1rem;
 }
 
 .col-flex {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-content: center;
-	gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  gap: 1rem;
 }
 
 .fill-width {
-	width: 100%;
+  width: 100%;
 }
 
 .fill-height {
-	height: 100%;
+  height: 100%;
 }
 
 .no-border {
-	border-style: none;
+  border-style: none;
 }
 
 /* Specific stuff */
 
 #search-bar > * {
-	margin: 0;
-	border-width: 3px;
-	padding: 3px 10px;
-	border-color: black;
+  margin: 0;
+  border-width: 3px;
+  padding: 3px 10px;
+  border-color: black;
 }
 
 #search-bar > button:enabled {
-	background-color: dodgerblue;
-	color: white;
+  background-color: dodgerblue;
+  color: white;
 }
 
 #report-form > button {
-	padding: 5px;
-	border-radius: 5px;
+  padding: 5px;
+  border-radius: 5px;
 }
 #report-form > button:enabled {
-	background-color: dodgerblue;
-	color: white;
+  background-color: dodgerblue;
+  color: white;
 }
 
 #search-bar1 > * {
@@ -87,218 +87,218 @@
 
 /* other stuff ig */
 body {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	margin: 0;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  margin: 0;
 }
 
 input,
 label {
-	display: block;
+  display: block;
 }
 
 input {
-	margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0.5rem 1rem;
-	background: #000000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #000000;
 }
 
 main {
-	padding: 10px 0px 10px 10px;
+  padding: 10px 0px 10px 10px;
 }
 
 #navBarLogo {
-	max-height: 100px;
-	width: auto;
+  max-height: 100px;
+  width: auto;
 }
 
 #slogan-section {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 html {
-	background-color: #000;
-	color: white;
+  background-color: #000;
+  color: white;
 }
 
 #logo {
-	font-size: 1.5rem;
-	font-weight: bold;
-	text-decoration: none;
-	color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
 }
 
 nav ul {
-	display: flex;
-	align-items: center;
-	gap: 1rem;
-	padding: 0;
-	margin: 0;
-	list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 nav a {
-	display: block;
-	color: #fff;
+  display: block;
+  color: #fff;
 }
 
 form {
-	padding: 1rem;
-	border: 1px solid #ccc;
-	width: 15rem;
-	margin: 1rem auto;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  width: 15rem;
+  margin: 1rem auto;
 }
 
 /* automatically added by NavLink component */
 .active {
-	color: #eebc32;
-	font-weight: bold;
-	font-style: italic;
+  color: #eebc32;
+  font-weight: bold;
+  font-style: italic;
 }
 
 /* Starting from here is the login CSS*/
 
 .wrapper {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	/* width: 420px; */
-	/* background: slateblue; */
-	/* color: #FFF; */
-	border-radius: 10px;
-	padding: 30px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 420px; */
+  /* background: slateblue; */
+  /* color: #FFF; */
+  border-radius: 10px;
+  padding: 30px 40px;
 }
 
 .wrapper h1 {
-	font-size: 36px;
-	text-align: center;
+  font-size: 36px;
+  text-align: center;
 }
 
 #username {
-	width: 350px;
+  width: 350px;
 }
 
 #password {
-	width: 350px;
+  width: 350px;
 }
 
 #fullname {
-	width: 350px;
+  width: 350px;
 }
 
 #email {
-	width: 350px;
+  width: 350px;
 }
 
 #age {
-	width: 350px;
+  width: 350px;
 }
 
 #race {
-	width: 350px;
+  width: 350px;
 }
 
 #gender {
-	width: 350px;
+  width: 350px;
 }
 
 .wrapper input-box {
-	position: relative;
-	width: 100%;
-	height: 50px;
-	background: black;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background: black;
 
-	margin: 30px 0;
+  margin: 30px 0;
 }
 
 .input-box input {
-	width: 100%;
-	height: 100%;
-	background: transparent;
-	border: none;
-	border: 2px solid rgb(68, 66, 66);
-	outline: none;
-	border-radius: 40px;
-	font-size: 16px;
-	color: white;
-	padding: 20px 45px 20px 20px;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  border: 2px solid rgb(68, 66, 66);
+  outline: none;
+  border-radius: 40px;
+  font-size: 16px;
+  color: white;
+  padding: 20px 45px 20px 20px;
 }
 
 .input-box::placeholder {
-	color-scheme: black;
+  color-scheme: black;
 }
 
 .wrapper .remember-forgot {
-	display: flex;
-	justify-content: space-between;
-	font-size: 14.5px;
-	margin: -15px 0 15px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+  margin: -15px 0 15px;
 }
 
 .remember-forgot label input {
-	accent-color: #fff;
-	margin-right: 4px;
+  accent-color: #fff;
+  margin-right: 4px;
 }
 
 .remember-forgot a {
-	color: #fff;
-	text-decoration: none;
+  color: #fff;
+  text-decoration: none;
 }
 
 #remember-me {
-	display: flex;
+  display: flex;
 }
 
 .remember-forgot a:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 #login-button {
-	width: 250px;
+  width: 250px;
 }
 
 .wrapper button {
-	width: 30%;
-	height: 45px;
-	background: #fff;
-	border: none;
-	outline: none;
-	border-radius: 40px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-	cursor: pointer;
-	font-size: 16px;
-	color: #333;
-	font-weight: 700;
+  width: 30%;
+  height: 45px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 700;
 }
 
 .wrapper .register-link {
-	font-size: 14.5px;
-	text-align: center;
-	margin-top: 20px;
-	margin: 20px 0 15px;
+  font-size: 14.5px;
+  text-align: center;
+  margin-top: 20px;
+  margin: 20px 0 15px;
 }
 
 .register-link p a {
-	color: blue;
-	text-decoration: none;
-	font-weight: 600;
+  color: blue;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .register-link p a:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 .container {
-	display: flex;
-	justify-content: center;
-	height: 100vh;
-	font-family: "Sanchez", sans-serif;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Sanchez", sans-serif;
 }
 
 .card {
@@ -317,7 +317,7 @@ form {
 
 .card:hover,
 .card__image {
-	border: solid 3px white;
+  border: solid 3px white;
 }
 
 .card__name {
@@ -327,57 +327,57 @@ form {
 }
 
 .draw-border {
-	box-shadow: inset 0 0 0 4px white;
-	color: white;
-	-webkit-transition: color 0.25s 0.0833333333s;
-	transition: color 0.25s 0.0833333333s;
-	position: relative;
+  box-shadow: inset 0 0 0 4px white;
+  color: white;
+  -webkit-transition: color 0.25s 0.0833333333s;
+  transition: color 0.25s 0.0833333333s;
+  position: relative;
 }
 
 .draw-border::before,
 .draw-border::after {
-	border: 0 solid transparent;
-	box-sizing: border-box;
-	content: "";
-	pointer-events: none;
-	position: absolute;
-	width: 0rem;
-	height: 0;
-	bottom: 0;
-	right: 0;
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  width: 0rem;
+  height: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .draw-border::before {
-	border-bottom-width: 4px;
-	border-left-width: 4px;
+  border-bottom-width: 4px;
+  border-left-width: 4px;
 }
 
 .draw-border::after {
-	border-top-width: 4px;
-	border-right-width: 4px;
+  border-top-width: 4px;
+  border-right-width: 4px;
 }
 
 .draw-border:hover {
-	color: #ffe593;
+  color: #ffe593;
 }
 
 .draw-border:hover::before,
 .draw-border:hover::after {
-	border-color: #fdc41c;
-	-webkit-transition: border-color 0s, width 0.25s, height 0.25s;
-	transition: border-color 0s, width 0.25s, height 0.25s;
-	width: 100%;
-	height: 100%;
+  border-color: #fdc41c;
+  -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
+  transition: border-color 0s, width 0.25s, height 0.25s;
+  width: 100%;
+  height: 100%;
 }
 
 .draw-border:hover::before {
-	-webkit-transition-delay: 0s, 0s, 0.25s;
-	transition-delay: 0s, 0s, 0.25s;
+  -webkit-transition-delay: 0s, 0s, 0.25s;
+  transition-delay: 0s, 0s, 0.25s;
 }
 
 .draw-border:hover::after {
-	-webkit-transition-delay: 0s, 0.25s, 0s;
-	transition-delay: 0s, 0.25s, 0s;
+  -webkit-transition-delay: 0s, 0.25s, 0s;
+  transition-delay: 0s, 0.25s, 0s;
 }
 
 .btn {
@@ -393,73 +393,73 @@ form {
 }
 
 .btn:focus {
-	outline: 2px dotted #55d7dc;
+  outline: 2px dotted #55d7dc;
 }
 
 .grid-container {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-gap: 20px;
-	font-size: 1.2em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  font-size: 1.2em;
 }
 
 .card__image {
-	height: 160px;
-	width: 160px;
-	border-radius: 50%;
-	border: 5px solid #272133;
-	margin-top: 20px;
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  border: 5px solid #272133;
+  margin-top: 20px;
 }
 
 /* Animation for sliding in */
 @keyframes slideIn {
-	from {
-		opacity: 0;
-		transform: translateX(-100%);
-	}
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
 
-	to {
-		opacity: 1;
-		transform: translateX(0);
-	}
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* Styling for text slide-in effect */
 .slide-in-text h1,
 .slide-in-text h4 {
-	animation: slideIn 3s ease-out;
-	opacity: 0;
-	animation-fill-mode: forwards;
-	white-space: nowrap;
+  animation: slideIn 3s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  white-space: nowrap;
 }
 
 /* how long the text takes to slide in*/
 .slide-in-text h1 {
-	animation-delay: 0s;
-	font-family: "League Spartan", sans-serif;
-	font-size: 10vw;
-	font-optical-sizing: auto;
-	font-weight: 1500;
-	font-style: normal;
+  animation-delay: 0s;
+  font-family: "League Spartan", sans-serif;
+  font-size: 9vw;
+  font-optical-sizing: auto;
+  font-weight: 1500;
+  font-style: normal;
 }
 
 /* check the authority slide in delay */
 .slide-in-text h4 {
-	animation-delay: 2s;
-	font-family: "Sanchez", serif;
+  animation-delay: 2s;
+  font-family: "Sanchez", serif;
 }
 
 /* Styling for the highlighted word "Power" */
 .highlight-power {
-	color: #fdc41c;
+  color: #fdc41c;
 }
 
 /* Styling for the smaller "CHECK THE AUTHORITY!" text */
 .authority-check {
-	font-size: 5vw;
-	color: white;
-	font-family: "Sanchez", serif;
-	font-weight: 100;
+  font-size: 5vw;
+  color: white;
+  font-family: "Sanchez", serif;
+  font-weight: 100;
 }
 
 .DataComponent {
@@ -489,4 +489,91 @@ form {
 
 a {
 	color: #fdc41c;
+}
+
+.Post {
+  background-color: #1e1e1e;
+  padding: 20px 20px;
+  border-radius: 20px;
+}
+.Post-caption {
+  margin: 10px 15px;
+}
+
+.accordion {
+  border-radius: 2px;
+}
+
+.accordion__item + .accordion__item {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion__button {
+  margin: 10px 10px;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+}
+
+.accordion__button:hover {
+  background-color: #fdc41c;
+  color: black;
+}
+
+.accordion__button:before {
+  display: inline-block;
+  content: "";
+  height: 10px;
+  width: 10px;
+  margin-right: 12px;
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(-45deg);
+}
+
+.accordion__button[aria-expanded="true"]::before,
+.accordion__button[aria-selected="true"]::before {
+  transform: rotate(45deg);
+}
+
+.accordion__panel {
+  background-color: #000000;
+  margin: 10px 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 20px;
+  animation: fadein 0.35s ease-in;
+}
+
+/* -------------------------------------------------- */
+/* ---------------- Animation part ------------------ */
+/* -------------------------------------------------- */
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+#userList {
+  width: 80vw;
+  margin-right: 5vw;
+}
+
+.userNameDisplay {
+  font-size: 2.5vh;
+  min-height: 20px;
+}
+
+#commentSection {
+  margin: 10px 20px;
 }
