@@ -1,4 +1,3 @@
-/** @format */
 
 import React, { useState, useEffect } from "react";
 import { fetchHandler } from "../utils/fetchingUtils";
@@ -17,6 +16,7 @@ const OfficerSpecs = () => {
 				const [data, error] = await fetchHandler(
 					`/api/officers/${officerId}/complaints/reports`
 				);
+				console.log(data)
 				if (data && data?.reports) {
 					setOfficer(data);
 					setReports(data.reports);

@@ -1,11 +1,14 @@
 /** @format */
+import React from "react";
 import VideoPlayer from "../components/cloudinary/VideoPlayer";
+import CommentSection from "../components/CommentSection"; // Import CommentSection
 
 export const UserReportCard = ({ report }) => {
 	// doing this to avoid having to do report.contents a bajillion times
 	const reportContents = report.contents;
 	// doing this to guarantee that the text content is first
 	const textContent = reportContents.find(content => content.type === "text");
+
 	return (
 		<div style={{ padding: "5px", border: "solid", borderRight: "none" }}>
 			<p>{textContent?.content}</p>
@@ -30,6 +33,9 @@ export const UserReportCard = ({ report }) => {
 						/>
 					);
 			})}
+
+			{/* Add CommentSection for this specific report */}
+			<CommentSection comments={report.comments} />
 		</div>
 	);
 };
