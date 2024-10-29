@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import ListOfReports from "./ListOfReports";
 import Slogan from "../Cop Check Assets/2.png";
+import { DataComponent } from "../components/DataComponent";
+
+import { HomePageSearchBar } from "../components/HomePageSearch";
 
 export default function HomePage() {
   return (
@@ -18,8 +21,12 @@ export default function HomePage() {
         </h1>
         <h4 className="authority-check">CHECK THE AUTHORITY!</h4>
       </div>
+      <div>
+        <HomePageSearchBar />
+      </div>
+      <div>
+        <DataComponent />
+      </div>
     </div>
   );
 }
-
-

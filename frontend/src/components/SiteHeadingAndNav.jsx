@@ -5,6 +5,7 @@ import { useContext } from "react";
 import CurrentUserContext from "../contexts/current-user-context";
 import letterLogo from "../Cop Check Assets/4.png";
 import { SearchBar } from "./SearchBar";
+
 export default function SiteHeadingAndNav() {
 	const { currentUser } = useContext(CurrentUserContext);
 
