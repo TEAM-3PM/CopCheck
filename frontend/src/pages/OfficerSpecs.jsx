@@ -1,4 +1,3 @@
-/** @format */
 
 import React, { useState, useEffect } from "react";
 import { fetchHandler } from "../utils/fetchingUtils";
@@ -10,6 +9,7 @@ const OfficerSpecs = () => {
   const { officerId } = useParams();
   const [officer, setOfficer] = useState({});
   const [reports, setReports] = useState([]);
+
 
   useEffect(() => {
     const fetchOfficer = async () => {

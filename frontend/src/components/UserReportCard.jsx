@@ -1,4 +1,5 @@
 /** @format */
+import React from "react";
 import VideoPlayer from "../components/cloudinary/VideoPlayer";
 import { limitCharacters } from "./functions/limitCharacters";
 import {
@@ -11,6 +12,7 @@ import {
 import { useEffect, useState } from "react";
 import { fetchHandler } from "../utils/fetchingUtils";
 //import "react-accessible-accordion/dist/fancy-example.css";
+import CommentSection from "../components/CommentSection"; // Import CommentSection
 
 export const UserReportCard = ({ report, user_id }) => {
   // doing this to avoid having to do report.contents a bajillion times
@@ -83,10 +85,7 @@ export const UserReportCard = ({ report, user_id }) => {
         ""
       )}
 
-      <section id="commentSection">
-        <h4>Comments</h4>
-        {report.comments.length > 0 ? "hello" : <p>No Comments Found...</p>}
-      </section>
+      <CommentSection comments={report.comments} />
     </article>
   );
 };
