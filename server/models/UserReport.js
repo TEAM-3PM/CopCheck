@@ -40,7 +40,14 @@ class UserReport {
 	}
 
 	static async findByOfficerId(officer_id) {
-		const query = `SELECT * FROM user_reports WHERE officer_id = ?`;
+		const query = `
+			SELECT
+			user_reports.*, users.username
+		FROM
+			user_reports
+			JOIN users ON user_reports.user_id = users.id
+		WHERE
+			officer_id = ?;`;
 		const result = await knex.raw(query, [officer_id]);
 		return result.rows;
 	}

@@ -42,7 +42,14 @@ class Comments {
 	}
 
 	static async findByReportId(report_id) {
-		const query = `SELECT * FROM comments WHERE report_id = ?`;
+		const query = `
+		SELECT
+			comments.*, users.username
+		FROM
+			comments
+			JOIN users ON comments.user_id = users.id
+		WHERE
+			report_id = ?;`;
 		const result = await knex.raw(query, [report_id]);
 		return result.rows;
 	}
