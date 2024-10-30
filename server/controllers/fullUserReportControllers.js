@@ -4,6 +4,7 @@ const UserReport = require("../models/UserReport");
 const Content = require("../models/Content");
 const FullUserReport = require("../models/FullUserReport");
 const Comments = require("../models/Comments");
+const Officer = require("../models/Officer");
 
 exports.createFullUserReport = async (req, res) => {
 	const { currUserId, body_officer_id, contents } = this.requestData(req);
@@ -26,7 +27,15 @@ exports.createFullUserReport = async (req, res) => {
 
 exports.listFullUserReports = async (req, res) => {
 	try {
-		const userReports = await FullUserReport.list();
+		const userReports = await UserReport.list();
+
+		await Promise.all(
+			userReports.map(async report => {
+				(report.officer = await Officer.find(report.officer_id)),
+					(report.contents = await Content.findReportId(report.id)),
+					(report.comments = await Comments.findByReportId(report.id));
+			})
+		);
 
 		res.status(200).send(userReports);
 	} catch (error) {
