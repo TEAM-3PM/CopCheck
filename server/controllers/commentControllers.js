@@ -2,10 +2,25 @@ const Comments = require("../models/Comments");
 
 //create comment
 exports.CreateComments = async (req, res) => {
-  const { user_id, report_id, text } = req.body;
-  const comment = await Comments.create(user_id, report_id, text);
-  res.send(comment);
+  //  user_id from the cookies
+  const { userId } = req.session;
+
+  // // Check if user_id is in DB
+  // if (!user_id) {
+  //   return res.status(401).json({ error: "User not authenticated" });
+  // }
+  const { report_id, text } = req.body;
+
+  try {
+    const comment = await Comments.create(userId, report_id, text);
+    console.log(userId);
+    res.status(201).send(comment) //  created comment data
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to create comment" });
+  }
 };
+
 //update
 exports.UpdateComments = async (req, res) => {
   const { text } = req.body;

@@ -14,13 +14,14 @@ const logRoutes = require("./middleware/logRoutes");
 const checkAuthentication = require("./middleware/checkAuthentication");
 
 // controller imports
-const likeControllers = require("./controllers/likeControllers");
+const likeControllers = require("./controllers/likeController");
 const authControllers = require("./controllers/authControllers");
 const userControllers = require("./controllers/userControllers");
 const fullUserReportControllers = require("./controllers/fullUserReportControllers");
 const officerControllers = require("./controllers/officerControllers");
 const precinctControllers = require("./controllers/precinctControllers");
 const publicComplaintControllers = require("./controllers/publicComplaintControllers");
+const commentsControllers = require("./controllers/commentControllers")
 const app = express();
 
 // middleware
@@ -111,6 +112,25 @@ app.get(
   publicComplaintControllers.getOfficerByTaxId
 );
 
+
+///////////////////////////////
+// comment Routes
+///////////////////////////////
+app.post(
+  "/api/comments",
+  checkAuthentication, commentsControllers.CreateComments);
+app.put(
+  "/api/comments/:id", checkAuthentication,
+  commentsControllers.UpdateComments
+);
+app.get(
+  "/api/comments/report/:id",
+  commentsControllers.GetCommentsByReport
+);
+app.delete(
+  "api/comments/:id", checkAuthentication,
+  commentsControllers.DeleteComments
+);
 ///////////////////////////////
 // likes Routes
 ///////////////////////////////

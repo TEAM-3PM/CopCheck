@@ -62,11 +62,17 @@ class Comments {
 	static async create(user_id, report_id, text) {
 		// hash the plain-text password using bcrypt before storing it in the database
 
-		const query = `INSERT INTO comments ( user_id, report_id, text )
-        VALUES ( ?, ?, ?) RETURNING *`;
+		const query = `
+		WITH return AS (
+  INSERT INTO comments (user_id, report_id, text)
+    VALUES(?, ?, ?) 
+  RETURNING * 
+)
+SELECT return.*, users.username
+FROM return
+  JOIN users ON return.user_id = users.id;`;
 		const result = await knex.raw(query, [user_id, report_id, text]);
-		const rawUpdatedPrecincts = result.rows[0];
-		return new Comments(rawUpdatedPrecincts);
+		return result.rows[0]
 	}
 
 	// Updates the user that matches the given id with a new username.
