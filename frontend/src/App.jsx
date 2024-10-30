@@ -15,6 +15,7 @@ import VideoPlayer from './components/cloudinary/VideoPlayer.jsx';
 import ReportsList from './pages/ListOfReports.jsx';
 import OfficerSpecs from './pages/OfficerSpecs.jsx';
 import CopCheckFeed from './pages/CopCheckFeed.jsx';
+import AboutUsPage from './pages/AboutUsPage.jsx';
 
 
 export default function App() {
@@ -38,6 +39,7 @@ export default function App() {
         <Route path='*' element={<NotFoundPage />} />
         <Route path='/officers/:officerId' element={<OfficerSpecs />} />
         <Route path='/feed' element={<CopCheckFeed />} />
+        <Route path='/about' element={<AboutUsPage />} />
       </Routes>
     </main>
   </>;
