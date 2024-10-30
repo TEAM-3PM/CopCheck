@@ -26,7 +26,7 @@ class UserReport {
 	static async list() {
 		const query = `SELECT * FROM user_reports`;
 		const result = await knex.raw(query);
-		return result.rows.map(rawUserData => new UserReport(rawUserData));
+		return result.rows;
 	}
 
 	// Fetches A single user from the users table that matches
