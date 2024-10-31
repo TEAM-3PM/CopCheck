@@ -14,24 +14,16 @@ import { fetchHandler } from "../utils/fetchingUtils";
 // import "react-accessible-accordion/dist/fancy-example.css";
 import CommentSection from "../components/CommentSection"; // Import CommentSection
 
-export const UserReportCard = ({ report, user_id }) => {
+export const UserReportCard = ({ report }) => {
 	// doing this to avoid having to do report.contents a bajillion times
 	const reportContents = report.contents;
 	// doing this to guarantee that the text content is first
 	const textContent = reportContents.find(content => content.type === "text");
 	const [extraInfo, setExtraInfo] = useState(false);
-	const [username, setUsername] = useState("");
 	const hasMediaContent = reportContents.find(
 		content => content.type === "image" || content.type === "video"
 	);
 	const limitCharLength = 380;
-	useEffect(() => {
-		const fetchUsername = async () => {
-			const response = await fetchHandler(`/api/users/${user_id}`);
-			setUsername(response[0].username);
-		};
-		fetchUsername();
-	}, [user_id]);
 
 	return (
 		<>
@@ -42,7 +34,7 @@ export const UserReportCard = ({ report, user_id }) => {
 			)}
 			<article className='Post'>
 				<div className='Post-caption'>
-					<strong className='userNameDisplay'>{username}:</strong>
+					<strong className='userNameDisplay'>{report.username}:</strong>
 					<p>
 						{" "}
 						{extraInfo
@@ -57,7 +49,7 @@ export const UserReportCard = ({ report, user_id }) => {
 						</button>
 					)}
 				</div>
-				{hasMediaContent ? (
+				{hasMediaContent && (
 					<Accordion allowZeroExpanded='true'>
 						<AccordionItem>
 							<AccordionItemHeading>
@@ -87,8 +79,6 @@ export const UserReportCard = ({ report, user_id }) => {
 							</AccordionItemPanel>
 						</AccordionItem>
 					</Accordion>
-				) : (
-					""
 				)}
 
 				<CommentSection

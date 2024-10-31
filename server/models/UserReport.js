@@ -24,7 +24,11 @@ class UserReport {
 	// Fetches ALL users from the users table, uses the constructor
 	// to format each user (and hide their password hash), and returns.
 	static async list() {
-		const query = `SELECT * FROM user_reports`;
+		const query = `SELECT
+			user_reports.*, users.username
+		FROM
+			user_reports
+			JOIN users ON user_reports.user_id = users.id;`;
 		const result = await knex.raw(query);
 		return result.rows;
 	}
