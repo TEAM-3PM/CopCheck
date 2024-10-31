@@ -4,7 +4,7 @@ import CurrentUserContext from "../contexts/current-user-context";
 import { getUser } from "../adapters/user-adapter";
 import { logUserOut } from "../adapters/auth-adapter";
 import UpdateUsernameForm from "../components/UpdateUsernameForm";
-
+import { AwesomeButton } from "react-awesome-button";
 export default function UserPage() {
   const navigate = useNavigate();
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
@@ -26,7 +26,7 @@ export default function UserPage() {
   const handleLogout = async () => {
     logUserOut();
     setCurrentUser(null);
-    navigate('/');
+    navigate("/");
   };
 
   if (!userProfile && !errorText) return null;
@@ -35,16 +35,25 @@ export default function UserPage() {
   // What parts of state would change if we altered our currentUser context?
   // Ideally, this would update if we mutated it
   // But we also have to consider that we may NOT be on the current users page
-  const profileUsername = isCurrentUserProfile ? currentUser.username : userProfile.username;
+  const profileUsername = isCurrentUserProfile
+    ? currentUser.username
+    : userProfile.username;
 
-  return <>
-    <h1>{profileUsername}</h1>
-    {!!isCurrentUserProfile && <button onClick={handleLogout}>Log Out</button>}
-    <p>If the user had any data, here it would be</p>
-    <p>Fake Bio or something</p>
-    {
-      !!isCurrentUserProfile
-      && <UpdateUsernameForm currentUser={currentUser} setCurrentUser={setCurrentUser} />
-    }
-  </>;
+  return (
+    <>
+      <h1>{profileUsername}</h1>
+      {!!isCurrentUserProfile && (
+        <AwesomeButton type="danger" onPress={handleLogout}>
+          Log Out
+        </AwesomeButton>
+      )}
+
+      {!!isCurrentUserProfile && (
+        <UpdateUsernameForm
+          currentUser={currentUser}
+          setCurrentUser={setCurrentUser}
+        />
+      )}
+    </>
+  );
 }

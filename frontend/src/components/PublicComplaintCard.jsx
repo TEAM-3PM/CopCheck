@@ -1,53 +1,21 @@
+export const PublicComplaintCard = ({ complaint, rowIndex }) => {
+  const backgroundColor = rowIndex % 2 === 0 ? "black" : "grey"; // Alternating colors
 
-
-export const PublicComplaintCard = ({ complaint }) => {
-	// console.log(complaint);
-	return (
-		<div
-			className='col-flex'
-			style={{
-				color: "black",
-				backgroundColor: "white",
-				borderRadius: "5px",
-			}}>
-			<p>
-				<strong>Rank at Incident:</strong> {complaint.officer_rank_at_incident}{" "}
-				({complaint.officer_rank_abbreviation_at_incident})
-			</p>
-			<p>
-				<strong>Command at Incident:</strong>{" "}
-				{complaint.officer_command_at_incident}
-			</p>
-			<p>
-				<strong>FADO Type:</strong> {complaint.fado_type}
-			</p>
-			<p>
-				<strong>Allegation:</strong> {complaint.allegation}
-			</p>
-			<p>
-				<strong>Victim's Age Range:</strong>{" "}
-				{complaint.victim_allegedvictim_age_range_at_incident}
-			</p>
-			<p>
-				<strong>Victim's Gender:</strong>{" "}
-				{complaint.victim_allegedvictim_gender}
-			</p>
-			<p>
-				<strong>Victim's Race:</strong>{" "}
-				{complaint.victim_allegedvictim_race_legacy}
-			</p>
-			<p>
-				<strong>CCRB Disposition:</strong>{" "}
-				{complaint.ccrb_allegation_disposition}
-			</p>
-			<p>
-				<strong>NYPD Disposition:</strong>{" "}
-				{complaint.nypd_allegation_disposition}
-			</p>
-			<p>
-				<strong>Investigator's Recommended Disposition:</strong>{" "}
-				{complaint.investigator_recommended_allegation_disposition}
-			</p>
-		</div>
-	);
+  return (
+    <tr style={{ backgroundColor }}>
+      <td>
+        {complaint.officer_rank_at_incident} (
+        {complaint.officer_rank_abbreviation_at_incident})
+      </td>
+      <td>{complaint.officer_command_at_incident}</td>
+      <td>{complaint.fado_type}</td>
+      <td>{complaint.allegation}</td>
+      <td>{complaint.victim_allegedvictim_age_range_at_incident}</td>
+      <td>{complaint.victim_allegedvictim_gender}</td>
+      <td>{complaint.victim_allegedvictim_race_legacy}</td>
+      <td>{complaint.ccrb_allegation_disposition}</td>
+      <td>{complaint.nypd_allegation_disposition}</td>
+      <td>{complaint.investigator_recommended_allegation_disposition}</td>
+    </tr>
+  );
 };
