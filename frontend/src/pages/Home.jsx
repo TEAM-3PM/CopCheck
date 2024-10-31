@@ -21,10 +21,10 @@ export default function HomePage() {
         </h1>
         <h4 className="authority-check">CHECK THE AUTHORITY!</h4>
       </div>
-      <div>
+      <div id="search-section">
         <HomePageSearchBar />
       </div>
-      <div>
+      <div id="data-section">
         <DataComponent />
       </div>
     </div>

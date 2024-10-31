@@ -2,7 +2,7 @@ export const DataComponent = () => {
   // console.log(complaint);
   return (
     <div>
-      <h1>The Data</h1>
+      <h1 id="dataHeading">The Data</h1>
       <div className="DataComponent">
         <div className="section">
           <h2>Police killings</h2>
