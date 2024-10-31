@@ -19,7 +19,7 @@ exports.seed = async (knex) => {
 
   // User.(username, password, full_name, email, age, race, gender)
   await User.create(
-    "khyroutodaguy",
+    "TudorMan808",
     "1234",
     "Mekhi Tudor",
     "email@gmail.com",
@@ -29,7 +29,7 @@ exports.seed = async (knex) => {
   );
 
   await User.create(
-    "stonky",
+    "MMiller021",
     "sus",
     "Mekhi Miller",
     "yesno@maybe.so",
