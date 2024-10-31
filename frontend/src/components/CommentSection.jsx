@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
+
 import { fetchHandler } from "../utils/fetchingUtils";
 
 const CommentSection = ({ comments: initialComments, reportId }) => {
@@ -107,7 +108,16 @@ const CommentSection = ({ comments: initialComments, reportId }) => {
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
         />
-        <AwesomeButton type="primary" onPress={handleAddComment}>
+        <AwesomeButton
+          style={{
+            "button-primary-color": "#3A3A3A",
+            "button-primary-color-dark": "#141414",
+            "button-primary-color-light": "#FBFBFB",
+            "button-primary-color-hover": "#2D2D2D",
+          }}
+          type="primary"
+          onPress={handleAddComment}
+        >
           Add Comment
         </AwesomeButton>
       </div>
