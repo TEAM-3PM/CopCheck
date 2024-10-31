@@ -9,8 +9,91 @@ const PublicComplaints = require("../../models/PublicComplaint");
 exports.seed = async function (knex) {
   // Deletes ALL existing entries
 
+
   await knex.raw("ALTER SEQUENCE public_data_id_seq RESTART WITH 1");
 
+  // create(
+  // 	as_of_date,
+  // 	complaint_id,
+  // 	complaint_officer_number,
+  // 	tax_id,
+  // 	officer_rank_abbreviation_at_incident,
+  // 	officer_rank_at_incident,
+  // 	officer_command_at_incident,
+  // 	officer_days_on_force_at_incident,
+  // 	allegation_record_identity,
+  // 	fado_type,
+  // 	allegation,
+  // 	victim_allegedvictim_age_range_at_incident,
+  // 	victim_allegedvictim_gender,
+  // 	victim_allegedvictim_race_legacy,
+  // 	victim_alleged_victim_race_ethnicity,
+  // 	ccrb_allegation_disposition,
+  // 	nypd_allegation_disposition,
+  // 	investigator_recommended_allegation_disposition
+  // )
+  await PublicComplaints.create(
+    "10/07/2024",
+    "202005678",
+    "2",
+    "963460",
+    "POM",
+    "Police Officer",
+    "046 PCT",
+    "1223",
+    "1112173",
+    "Abuse of Authority",
+    "Entry of Premises",
+    "44 < Age <= 49",
+    "Female/Woman",
+    "Hispanic",
+    "",
+    "Unsubstantiated",
+    "",
+    "Unsubstantiated"
+  )
+  await PublicComplaints.create(
+    "10/07/2024",
+    "202304679",
+    "1",
+    "963460",
+    "PO",
+    "Police Officer",
+    "046 PCT",
+    "2223",
+    "1225669",
+    "Force",
+    "Physical force",
+    "29 < Age <= 34",
+    "Male/Man",
+    "",
+    "Other Hispanic/Latino (E)",
+    "Alleged Victim Unavailable",
+    "",
+    "Alleged Victim Unavailable"
+
+  )
+
+  await PublicComplaints.create(
+    "10/07/2024",
+    "202303888",
+    "1",
+    "963460",
+    "PO",
+    "Police Officer",
+    "046 PCT",
+    "2212",
+    "1225703",
+    "Abuse of Authority",
+    "Stop",
+    "39 < Age <= 44",
+    "Male/Man",
+    "",
+    "Dominican (E)",
+    "Substantiated (Command Discipline A)",
+    "",
+    "Substantiated"
+  )
   await PublicComplaints.create(
     "10/07/2024",
     "200907595",
