@@ -24,4 +24,7 @@ exports.seed = async function (knex) {
   await Officer.create(921207, 46, "David", "Centeno", 2148, true, 10, 1);
   await Officer.create(932637, 58, "Joseph", "Ferrari", 30978, false, 8, 0);
   await Officer.create(934557, 45, "Ramon", "Cabral", 23531, true, 17, 0);
+  await Officer.create(963460, 29, "Oshane", "Cole", 8641, true, 8, 4);
 };
+
+

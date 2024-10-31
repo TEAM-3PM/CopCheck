@@ -42,7 +42,7 @@ export const UserReportCard = ({ report, user_id }) => {
 			)}
 			<article className='Post'>
 				<div className='Post-caption'>
-					<strong className='userNameDisplay'>{username}:</strong>
+					<strong className='userNameDisplay'>{report.username}:</strong>
 					<p>
 						{" "}
 						{extraInfo
