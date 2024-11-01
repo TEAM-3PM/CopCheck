@@ -44,42 +44,45 @@
 
 /* Specific stuff */
 
-#search-bar > * {
+#search-bar>* {
   margin: 0;
   border-width: 3px;
   padding: 3px 10px;
   border-color: black;
 }
 
-#search-bar > button:enabled {
+#search-bar>button:enabled {
   background-color: dodgerblue;
   color: white;
 }
 
-#report-form > button {
+#report-form>button {
   padding: 5px;
   border-radius: 5px;
 }
-#report-form > button:enabled {
+
+#report-form>button:enabled {
   background-color: dodgerblue;
   color: white;
 }
 
-#search-bar1 > * {
+#search-bar1>* {
   margin: 0;
   border-width: 3px;
   padding: 3px 10px;
   border-color: black;
 }
 
-#search-bar1 > button:enabled {
+#search-bar1>button:enabled {
   background-color: dodgerblue;
   color: white;
 }
+
 #text-box1 {
   width: 40vw;
   height: 5vh;
 }
+
 #dropdown1,
 #search-button1 {
   height: 5vh;
@@ -441,16 +444,17 @@ form {
 .slide-in-text h1 {
   animation-delay: 0s;
   font-family: "League Spartan", sans-serif;
-  font-size: 9vw;
+  font-size: 7vw;
   font-optical-sizing: auto;
   font-weight: 1500;
   font-style: normal;
+
 }
 
 /* check the authority slide in delay */
 .slide-in-text h4 {
   animation-delay: 2s;
-  font-family: "Sanchez", serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Styling for the highlighted word "Power" */
@@ -460,25 +464,28 @@ form {
 
 /* Styling for the smaller "CHECK THE AUTHORITY!" text */
 .authority-check {
-  font-size: 5vw;
+  font-size: 4.5vw;
   color: white;
-  font-family: "Sanchez", serif;
+  font-family: "League Spartan", sans-serif;
   font-weight: 100;
+  margin-top: 10px;
 }
 
 .DataComponent {
   display: flex;
   gap: 30px;
   font-size: 1.5vw;
-  padding: 80px;
+  padding: 40px;
 }
 
 .section {
   flex: 1;
   padding: 20px;
   background-color: #0e0e0e;
+  border: dashed 2px;
   border-radius: 10px;
 }
+
 .section:hover {
   background-color: #191919;
 }
@@ -505,6 +512,7 @@ a {
 .Post:hover {
   background-color: #2a2a2a;
 }
+
 .Post-caption {
   margin: 10px 15px;
 }
@@ -513,7 +521,7 @@ a {
   border-radius: 2px;
 }
 
-.accordion__item + .accordion__item {
+.accordion__item+.accordion__item {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -586,11 +594,13 @@ a {
 #commentSection {
   margin: 10px 20px;
 }
+
 .comment {
   margin: 5px 5px;
   padding: 5px 5px;
   border-radius: 5px;
 }
+
 .comment:hover {
   background-color: #3f3f3f;
 }
@@ -611,7 +621,8 @@ a {
 }
 
 #search-section {
-  margin: 20vh;
+  margin-top: 10vh;
+  margin-bottom: 50px;
 }
 
 #dataHeading {

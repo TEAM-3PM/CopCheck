@@ -1,10 +1,10 @@
 export const DataComponent = () => {
   // console.log(complaint);
   return (
-    <div>
-      <h1 id="dataHeading">The Data</h1>
+    <div style={{ marginTop: '270px' }}>
+      <h1 id="dataHeading" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center' }}>The Data</h1>
       <div className="DataComponent">
-        <div className="section">
+        <div className="section" >
           <h2>Police killings</h2>
           <p>
             Black Americans are more than twice as likely to be killed by police

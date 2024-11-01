@@ -12,21 +12,24 @@ export default function HomePage() {
         <img src={Slogan} alt="Cop Check Slogan" id="HomePageSlogan" />
       </section> */}
       <div className="slide-in-text">
-        <h1>
+        <h1 style={{ marginTop: '75px' }}>
           Put
           <br />
           The <span className="highlight-power">Power</span>
           <br />
           Back in your hands...
         </h1>
-        <h4 className="authority-check">CHECK THE AUTHORITY!</h4>
+        <h4 className="authority-check" style={{ marginTop: "10px" }}>Your Voice, Your Power.</h4>
       </div>
-      <div id="search-section">
-        <HomePageSearchBar />
+      <DataComponent />
+      <div id="data-section" >
       </div>
-      <div id="data-section">
-        <DataComponent />
+      <div id="search-section" style={{ textAlignLast: 'center', backgroundColor: 'white', color: 'black', padding: '10px' }} >
+        <h1>Ready to make your report?</h1>
+        <br />
+        <h2>Search for the officer here:</h2>
       </div>
+      <HomePageSearchBar />
     </div>
   );
 }
